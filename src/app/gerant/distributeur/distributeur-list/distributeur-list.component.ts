@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
 
 @Component({
   selector: 'app-distributeur-list',
@@ -18,12 +19,19 @@ export class DistributeurListComponent {
     'telephone',
     'localite',
   ];
-  dataSource = new MatTableDataSource<Distributeur>(ELEMENT_DATA);
+  dataSource:any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  constructor(private canalService: CanalPlusServiceService) {}
+
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    this.canalService.listeDistributeur().subscribe((data)=>{
+      console.log(data);
+      this.dataSource = new MatTableDataSource<any>(data);
+      this.dataSource.paginator = this.paginator;
+    });
+    
   }
 }
 
