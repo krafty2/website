@@ -1,0 +1,33 @@
+<section class="side-bar">
+  <div>
+    <h1>Gerant</h1>
+    <ul>
+      <li routerLinkActive="active"><a routerLink="/gerant/dashbord">Dashbord</a></li>
+      <li routerLinkActive="active">
+        <a routerLink="/gerant/gestion-distributeur">Distributeur</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/gerant/gestion-reabonnement">Reabonnement</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/gerant/gestion-installation">Installation</a>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <div style="margin-block: 14px;">
+      <a class="logout" (click)="logout()">Logout</a>
+    </div>
+    
+    <p
+      style="
+        text-align: center;
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
+        font-weight: 500;
+      "
+    >
+      Tout droit reserve ® {{ date.getFullYear() }}
+    </p>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+section {
+  /* padding: 24px; */
+  margin-block-start: 34px;
+  position: relative;
+}
+#map {
+
+  height: 550px;
+  width: auto;
+  /* margin-top: 25px;
+  margin-right: 20px;
+  margin-left: 20px; */
+  z-index: 0;
+}

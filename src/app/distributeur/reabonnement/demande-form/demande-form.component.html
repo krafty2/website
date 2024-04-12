@@ -1,0 +1,43 @@
+<section class="mat-elevation-z2">
+  <h1>Demande de reabonnement</h1>
+
+  <form [formGroup]="reaboForm" (ngSubmit)="handleSubmit()">
+    <div class="form-grid">
+      <mat-form-field>
+        <mat-label>Duree Abonnement</mat-label>
+        <mat-select formControlName="duree" value="1 mois">
+          <mat-option value="1 mois">1 mois</mat-option>
+          <mat-option value="3 mois">3 mois</mat-option>
+          <mat-option value="6 mois">6 mois</mat-option>
+          <mat-option value="12 mois">12 mois</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Bouquet</mat-label>
+        <mat-select formControlName="bouquet" value="Acces">
+          <mat-option value="Acces">Acces</mat-option>
+          <mat-option value="Evasion">Evasion</mat-option>
+          <mat-option value="Acces +">Acces +</mat-option>
+          <mat-option value="Evasion +">Evasion +</mat-option>
+          <mat-option value="Tout Canal +">Tout Canal +</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-grid">
+      <mat-form-field class="example-full-width">
+        <mat-label>Numero decodeur</mat-label>
+        <input matInput placeholder="Ex. 2782000022022" formControlName="numero_decodeur"/>
+      </mat-form-field>
+      <!-- <mat-form-field class="example-full-width">
+        <mat-label>prenom</mat-label>
+        <input matInput placeholder="Ex. Pierre" />
+      </mat-form-field> -->
+    </div>
+
+    <div class="form-grid">
+      <button mat-raised-button type="submit">Enregistrer</button>
+    </div>
+  </form>
+</section>

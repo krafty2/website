@@ -1,0 +1,20 @@
+<header>
+    <div class="bbst-head">
+      <button
+        style="height: 45px; text-align: center"
+        type="button"
+        mat-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon style="color: #fff">menu</mat-icon>
+      </button>
+      <h1 ><strong>Gestion Client Canal +</strong></h1>
+    </div>
+  </header>
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer [opened]="gerant" class="example-sidenav" [mode]="mode">
+       <!-- <app-side-bar></app-side-bar> -->
+       <app-side-bar-distrib/>
+    </mat-drawer>
+    <router-outlet> </router-outlet>
+  </mat-drawer-container>

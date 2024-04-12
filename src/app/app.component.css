@@ -1,0 +1,32 @@
+.example-container {
+  width: 100%;
+  height: calc(100vh - 55px);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  overflow-y: hidden;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 10px 0px;
+}
+
+.bbst-head {
+  background: #262626;
+  height: 55px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 500;
+  color: #fff;
+}

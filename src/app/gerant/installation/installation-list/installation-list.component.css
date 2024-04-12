@@ -1,0 +1,12 @@
+section {
+    padding: 24px;
+}
+
+.custom-filtre {
+    height: 140px;
+    width: 100%;
+    background: #262626;
+    color: #fff;
+    padding: 24px;
+    margin-block-end: 24px;
+}

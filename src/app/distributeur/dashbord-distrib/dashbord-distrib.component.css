@@ -1,0 +1,35 @@
+section {
+    padding: 12px;
+    padding-inline: 6%;
+}
+
+.indicateur-container {
+    display: flex;
+    gap: 14px;
+}
+
+.indice {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #262626;
+    color: #fff;
+    width: fit-content;
+    padding: 14px;
+}
+
+.in-prefixe {
+    font-size: 4rem;
+}
+
+.notification{
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1fr;
+    margin-block: 24px;
+}
+
+.notification > div{
+     border: 1px solid #c1c1c1;
+}

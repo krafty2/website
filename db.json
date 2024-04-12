@@ -1,0 +1,68 @@
+{
+  "profile": {
+    "name": "typicode"
+  },
+  "distributeurs": [
+    {
+      "id": "a03a",
+      "nom": "Traore",
+      "prenom": "Pierre",
+      "telephone": "606060",
+      "localite": "Po",
+      "longitude": "11.190286",
+      "latitude": "-4.290801"
+    },
+    {
+      "id": "cb09",
+      "nom": "Sawadogo",
+      "prenom": "Piero",
+      "telephone": "60606060",
+      "localite": "Reo",
+      "longitude": 11.409278,
+      "latitude": -4.053114
+    }
+  ],
+  "demande": [
+    {
+      "id": "3eae",
+      "typeDemande": "reabonnement",
+      "duree": "1 mois",
+      "bouquet": "Evasion",
+      "numero_decodeur": "45453453",
+      "date_demande": "2024-04-11",
+      "pourcentage_percu": "600"
+    },
+    {
+      "id": "0b4c",
+      "typeDemande": "reabonnement",
+      "duree": "6 mois",
+      "bouquet": "Acces +",
+      "numero_decodeur": "272782728722",
+      "date_demande": "2024-04-11",
+      "pourcentage_percu": "600"
+    },
+    {
+      "id": "69f4",
+      "typeDemande": "reabonnement",
+      "duree": "1 mois",
+      "bouquet": "Evasion +",
+      "numero_decodeur": "225589502723",
+      "date_demande": "2024-04-11",
+      "pourcentage_percu": "600"
+    }
+  ],
+  "demandeInstall": [
+    {
+      "id": "9c37",
+      "typeDemande": "installation",
+      "duree": "1 mois",
+      "bouquet": "Acces +",
+      "numero_decodeur": "202020202020",
+      "date_demande": "2024-04-11",
+      "pourcentage_percu": "1500",
+      "nom": "Traore",
+      "prenom": "Pierre",
+      "telephone": "60606060"
+    }
+  ]
+}
