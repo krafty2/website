@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../_service/auth.service';
 
 @Component({
@@ -11,9 +11,10 @@ import { AuthService } from '../../_service/auth.service';
 })
 export class SideBarDistribComponent {
   date: Date = new Date();
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService ,private router:Router) {}
 
   logout() {
     this.authService.logout();
+    this.router.navigate(['login']);
   }
 }
