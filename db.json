@@ -20,6 +20,15 @@
       "localite": "Reo",
       "longitude": 11.409278,
       "latitude": -4.053114
+    },
+    {
+      "id": "46f0",
+      "nom": "Sawadogo",
+      "prenom": "Pierre",
+      "telephone": "60606060",
+      "localite": "Bobo",
+      "longitude": 11.093535,
+      "latitude": -4.1709
     }
   ],
   "demande": [
@@ -30,7 +39,8 @@
       "bouquet": "Evasion",
       "numero_decodeur": "45453453",
       "date_demande": "2024-04-11",
-      "pourcentage_percu": "600"
+      "pourcentage_percu": "600",
+      "statut": "En attente"
     },
     {
       "id": "0b4c",
@@ -39,7 +49,8 @@
       "bouquet": "Acces +",
       "numero_decodeur": "272782728722",
       "date_demande": "2024-04-11",
-      "pourcentage_percu": "600"
+      "pourcentage_percu": "600",
+      "statut": "En attente"
     },
     {
       "id": "69f4",
@@ -48,7 +59,18 @@
       "bouquet": "Evasion +",
       "numero_decodeur": "225589502723",
       "date_demande": "2024-04-11",
-      "pourcentage_percu": "600"
+      "pourcentage_percu": "600",
+      "statut": "En attente"
+    },
+    {
+      "id": "5d0f",
+      "typeDemande": "reabonnement",
+      "duree": "6 mois",
+      "bouquet": "Evasion +",
+      "numero_decodeur": "1010101010101010",
+      "date_demande": "2024-04-16",
+      "pourcentage_percu": "600",
+      "statut": "En attente"
     }
   ],
   "demandeInstall": [
@@ -62,7 +84,34 @@
       "pourcentage_percu": "1500",
       "nom": "Traore",
       "prenom": "Pierre",
-      "telephone": "60606060"
+      "telephone": "60606060",
+      "statut": "En attente"
+    },
+    {
+      "id": "839c",
+      "typeDemande": "installation",
+      "duree": "3 mois",
+      "bouquet": "Acces +",
+      "numero_decodeur": "101010101010",
+      "date_demande": "2024-04-12",
+      "pourcentage_percu": "1500",
+      "nom": "Do",
+      "prenom": "Travolta",
+      "telephone": "60606060",
+      "statut": "En attente"
+    },
+    {
+      "id": "7a46",
+      "typeDemande": "installation",
+      "duree": "3 mois",
+      "bouquet": "Evasion +",
+      "numero_decodeur": "1010101010101010",
+      "date_demande": "2024-04-16",
+      "pourcentage_percu": "1500",
+      "nom": "Jo",
+      "prenom": "Val",
+      "telephone": "60606060",
+      "statut": "En attente"
     }
   ]
 }

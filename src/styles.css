@@ -1,14 +1,13 @@
 :root {
     --body-color: #e8e8e8;
   
-    --background-color: #0267c1;
-    --background-color-02: #ececec;
+    --background-color-01: #215caa;
+    --background-color-02: #ffd200;
     --background-color-03: #2c2c2c;
   
-    --text-color-01: #0267c1;
-    --text-color-02: #2c2c2c;
-    --text-color-03: #0c0b0c;
-    --text-color-04: #d62828;
+    --text-color-01: #ffd200;
+    --text-color-02: #215caa;
+    --text-color-03: #2c2c2c;
   }
   
   /* @font-face {

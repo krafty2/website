@@ -21,6 +21,8 @@ export class DistributeurListComponent {
   ];
   dataSource:any;
 
+  affiche:boolean = false;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private canalService: CanalPlusServiceService) {}

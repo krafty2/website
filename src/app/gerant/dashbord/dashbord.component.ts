@@ -11,6 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CanalPlusServiceService } from '../../_service/canal-plus-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogCreateOffreComponent } from '../Offre/dialog-create-offre/dialog-create-offre.component';
 
 
 
@@ -34,8 +36,17 @@ export class DashbordComponent {
   map: any;
   mark:any;
 
-  constructor(private canalService: CanalPlusServiceService) {
+  constructor(private canalService: CanalPlusServiceService,public dialog: MatDialog) {
    
+  }
+
+  openDialogOffre(){
+    const dialogRef = this.dialog.open(DialogCreateOffreComponent, {});
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+
+      console.log(result);
+    });
   }
 
   // ngOnInit(){

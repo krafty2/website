@@ -16,11 +16,15 @@ section {
     gap: 14px;
 }
 
+h1{
+    color: var(--text-color-03);
+}
+
 .indice {
     display: flex;
     align-items: center;
     gap: 14px;
-    background: #262626;
+    background: var(--background-color-01);
     color: #fff;
     width: fit-content;
     padding: 14px;

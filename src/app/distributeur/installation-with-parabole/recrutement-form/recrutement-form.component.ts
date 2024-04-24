@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
-
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
+import { Offre } from '../../../_models/offre';
+import { Status } from '../../../_models/demande';
+
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
-import { Status } from '../../../_models/demande';
-import { Offre } from '../../../_models/offre';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-demande-installation-form',
+  selector: 'app-recrutement-form',
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -21,10 +22,11 @@ import { CommonModule } from '@angular/common';
     MatFormFieldModule,
     MatSelectModule,
   ],
-  templateUrl: './demande-installation-form.component.html',
-  styleUrl: './demande-installation-form.component.css',
+  templateUrl: './recrutement-form.component.html',
+  styleUrl: './recrutement-form.component.css'
 })
-export class DemandeInstallationFormComponent {
+export class RecrutementFormComponent {
+
   installationForm!: FormGroup;
 
   dateJ: Date = new Date();
@@ -32,7 +34,7 @@ export class DemandeInstallationFormComponent {
   listeOffres$!: Offre[];
   montantTotal$!: number;
 
-  parabole:boolean=false;
+  parabole:boolean = true;
   
   constructor(
     private fb: FormBuilder,
@@ -95,7 +97,7 @@ export class DemandeInstallationFormComponent {
 
     console.log(this.installationForm.value);
 
-    this.distribService.createRecrutementWithoutPara(this.installationForm.value).subscribe((data)=>{
+    this.distribService.createRecrutementWithPara(this.installationForm.value).subscribe((data)=>{
       if(data){
          console.log('reussi');
       }

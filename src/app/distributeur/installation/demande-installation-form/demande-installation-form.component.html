@@ -1,57 +1,63 @@
 <section class="mat-elevation-z2">
-  <h1>Demande d'installation</h1>
+  <h1>Recrutement</h1>
 
   <form [formGroup]="installationForm" (ngSubmit)="handleSubmit()">
     <div class="form-grid">
-      <mat-form-field>
-        <mat-label>Duree Abonnement</mat-label>
-        <mat-select formControlName="duree" value="1 mois">
-          <mat-option value="1 mois">1 mois</mat-option>
-          <mat-option value="3 mois">3 mois</mat-option>
-          <mat-option value="6 mois">6 mois</mat-option>
-          <mat-option value="12 mois">12 mois</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
+      <mat-form-field class="example-full-width">
         <mat-label>Bouquet</mat-label>
-        <mat-select formControlName="bouquet" value="Acces">
-          <mat-option value="Acces">Acces</mat-option>
-          <mat-option value="Evasion">Evasion</mat-option>
-          <mat-option value="Acces +">Acces +</mat-option>
-          <mat-option value="Evasion +">Evasion +</mat-option>
-          <mat-option value="Tout Canal +">Tout Canal +</mat-option>
+
+        <mat-select formControlName="bouquet">
+          <mat-option
+            *ngFor="let offre of listeOffres$"
+            [value]="offre.bouquet"
+            >{{ offre.bouquet }}</mat-option
+          >
         </mat-select>
       </mat-form-field>
+
+      <div formGroupName="demande">
+        <mat-form-field class="example-full-width">
+          <mat-label>Duree Abonnement</mat-label>
+          <mat-select formControlName="duree_abonnement">
+            <mat-option value="1">1 mois</mat-option>
+            <mat-option value="3">3 mois</mat-option>
+            <mat-option value="6">6 mois</mat-option>
+            <mat-option value="12">12 mois</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
 
-    <div class="form-grid">
-      <mat-form-field class="example-full-width">
-        <mat-label>Nom</mat-label>
-        <input matInput formControlName="nom" placeholder="Ex. Traore" />
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>prenom</mat-label>
-        <input matInput formControlName="prenom" placeholder="Ex. Pierre" />
-      </mat-form-field>
-    </div>
-    <div class="form-grid">
-      <mat-form-field class="example-full-width">
-        <mat-label>Telephone</mat-label>
-        <input
-          formControlName="telephone"
-          matInput
-          placeholder="Ex. XX-XX-XX-XX"
-        />
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Numero decodeur</mat-label>
-        <input
-          formControlName="numero_decodeur"
-          matInput
-          placeholder="Ex. DXJDLJDF"
-        />
-      </mat-form-field>
+    <div formGroupName="client">
+      <div class="form-grid">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nom</mat-label>
+          <input matInput formControlName="nom" placeholder="Ex. Traore" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>prenom</mat-label>
+          <input matInput formControlName="prenom" placeholder="Ex. Pierre" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-grid">
+        <mat-form-field class="example-full-width">
+          <mat-label>Telephone</mat-label>
+          <input
+            formControlName="telephone"
+            matInput
+            placeholder="Ex. XX-XX-XX-XX"
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Numero decodeur</mat-label>
+          <input
+            formControlName="decodeur"
+            matInput
+            placeholder="Ex. DXJDLJDF"
+          />
+        </mat-form-field>
+      </div>
     </div>
 
     <div class="form-grid">
