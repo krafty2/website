@@ -1,5 +1,5 @@
 :root {
-    --body-color: #e8e8e8;
+    --body-color: #c1c1c11f;
   
     --background-color-01: #215caa;
     --background-color-02: #ffd200;
@@ -46,7 +46,7 @@
   
   body {
     height: 100vh;
-    background: var(--body-color) !important;
+    background: red !important;
   }
   
   section {
@@ -61,7 +61,7 @@
   } */
   
   .mat-mdc-table .mat-mdc-header-cell {
-    background: #2626260a !important;
+    background: #c1c1c11f !important;
     /* text-transform: uppercase; */
     color: #262626;
     font-size: 1rem;

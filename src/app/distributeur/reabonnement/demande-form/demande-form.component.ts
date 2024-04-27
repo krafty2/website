@@ -10,6 +10,8 @@ import { Offre } from '../../../_models/offre';
 import { CommonModule } from '@angular/common';
 import { Status } from '../../../_models/demande';
 import { HttpResponseBase } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogCreateReaboComponent } from '../dialog-create-reabo/dialog-create-reabo.component';
 
 @Component({
   selector: 'app-demande-form',
@@ -35,7 +37,8 @@ export class DemandeFormComponent {
 
   constructor(
     private fb: FormBuilder,
-    private distribService: CanalPlusServiceService
+    private distribService: CanalPlusServiceService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -74,8 +77,8 @@ export class DemandeFormComponent {
   handleSubmit() {
     let dureeReabo: number = this.reaboForm.value.demande.duree_abonnement;
     let bouquetChoisi = this.listeOffres$.find(
-      (element) => element.bouquet == this.reaboForm.value.bouquet
-    );
+       (element) => element.bouquet == this.reaboForm.value.bouquet
+     );
 
     if (bouquetChoisi) {
       this.montantTotal$ = dureeReabo * bouquetChoisi?.montant;
@@ -85,15 +88,21 @@ export class DemandeFormComponent {
       this.reaboForm.value.demande.commission = commission;
     }
 
-    console.log(this.reaboForm.value);
+    // console.log(this.reaboForm.value);
 
-    this.distribService.createDemande(this.reaboForm.value).subscribe((response) => {
-      console.log('reussi'+ response.status);
+    // this.distribService.createDemande(this.reaboForm.value).subscribe((response) => {
+    //   console.log('reussi'+ response.status);
+    // });
+
+    const dialogRef = this.dialog.open(DialogCreateReaboComponent, {
+      data: [this.reaboForm.value,this.montantTotal$],
     });
 
-    // this.distribService.createDReabo(this.reaboForm.value).subscribe(() => {
-    //   console.log('reussi');
-    //   window.location.reload();
-    // });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+
+      console.log(result);
+    });
+
   }
 }

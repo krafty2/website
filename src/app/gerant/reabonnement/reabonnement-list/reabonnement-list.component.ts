@@ -2,32 +2,49 @@ import { Component, ViewChild } from '@angular/core';
 
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
 
 @Component({
   selector: 'app-reabonnement-list',
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule,MatIconModule,MatMenuModule,MatButtonModule],
+  imports: [
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+  ],
   templateUrl: './reabonnement-list.component.html',
   styleUrl: './reabonnement-list.component.css',
 })
 export class ReabonnementListComponent {
+
   displayedColumns: string[] = [
-    'codeReabonnement',
-    'codeDistributeur',
     'bouquet',
+    'decodeur',
     'duree',
-    'statut',
+    'dateDemande',
+    'date_debutAbonnement',
+    'date_finAbonnement',
+    'commission',
+    'status',
   ];
 
-  dataSource = new MatTableDataSource<Reabonnement>(ELEMENT_DATA);
+  dataSource!: any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+  constructor(private canalService: CanalPlusServiceService) {}
+
+  ngOnInit() {
+    this.canalService.listeReabonnement().subscribe((data) => {
+      console.log(data);
+      this.dataSource = new MatTableDataSource<any>(data);
+      this.dataSource.paginator = this.paginator;
+    });
   }
 }
 

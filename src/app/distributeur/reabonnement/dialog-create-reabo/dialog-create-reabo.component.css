@@ -1,0 +1,14 @@
+section{
+    padding: 42px;
+}
+
+.btn-dmd{
+    background: var(--background-color-01);
+    color: #ffff;
+}
+
+.btn-annuler{
+    margin-inline-start: 56px;
+    background:red ;
+    color: #fff;
+}

@@ -1,5 +1,11 @@
 section {
     padding: 24px;
+    background: var(--body-color);
+}
+
+.dash{
+    font-size: clamp(1.5rem,3vw,2rem);
+    font-weight: 600;
 }
 
 /* .custom-filtre {
@@ -23,27 +29,43 @@ h1{
 .indice {
     display: flex;
     align-items: center;
-    gap: 14px;
-    background: var(--background-color-01);
-    color: #fff;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    background: #c1c1c13a;
+    color: var(--text-color-02);
     width: fit-content;
-    padding: 14px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.indice p:first-child{
+    font-weight: 600;
+}
+
+.indice p{
+    letter-spacing: 1px;
+    margin: 0;
 }
 
 .in-prefixe {
-    font-size: 4rem;
+    font-size: clamp(1rem,3vw,1.5rem);
 }
 
 .notification {
     display: grid;
     gap: 24px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 0.5fr 1fr;
     grid-template-rows: 1fr;
     margin-block: 24px;
 }
 
 .notification>div {
-    border: 1px solid #c1c1c1;
+    /* border: 1px solid #c1c1c1; */
+}
+
+.info-demande-attente{
+    background: #fff;
 }
 
 #myMap {

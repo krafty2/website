@@ -9,6 +9,8 @@ import { CanalPlusServiceService } from '../../../_service/canal-plus-service.se
 import { Status } from '../../../_models/demande';
 import { Offre } from '../../../_models/offre';
 import { CommonModule } from '@angular/common';
+import { DialogCreateReaboComponent } from '../../reabonnement/dialog-create-reabo/dialog-create-reabo.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-demande-installation-form',
@@ -36,7 +38,8 @@ export class DemandeInstallationFormComponent {
   
   constructor(
     private fb: FormBuilder,
-    private distribService: CanalPlusServiceService
+    private distribService: CanalPlusServiceService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -58,7 +61,7 @@ export class DemandeInstallationFormComponent {
       demande: this.fb.group({
         typeDemande: ['recrutement'],
         date_demande: [this.formatDate(this.dateJ)],
-        commission: [''],
+        commission: ['1500'],
         duree_abonnement: [''],
         status: [Status.EN_ATTENTE],
         parabole:[this.parabole]
@@ -87,18 +90,24 @@ export class DemandeInstallationFormComponent {
 
     if (bouquetChoisi) {
       this.montantTotal$ = dureeReabo * bouquetChoisi?.montant;
-      console.log(this.montantTotal$);
-      let commission = (this.montantTotal$ * 4) / 100;
-      console.log(commission);
-      this.installationForm.value.demande.commission = commission;
     }
 
     console.log(this.installationForm.value);
 
-    this.distribService.createRecrutementWithoutPara(this.installationForm.value).subscribe((data)=>{
-      if(data){
-         console.log('reussi');
-      }
-    })
+    const dialogRef = this.dialog.open(DialogCreateReaboComponent, {
+      data: [this.installationForm.value,this.montantTotal$],
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+
+      console.log(result);
+    });
+
+    // this.distribService.createRecrutementWithoutPara(this.installationForm.value).subscribe((data)=>{
+    //   if(data){
+    //      console.log('reussi');
+    //   }
+    // });
   }
 }

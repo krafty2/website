@@ -13,7 +13,6 @@ import { CanalPlusServiceService } from '../../../_service/canal-plus-service.se
 })
 export class DistributeurListComponent {
   displayedColumns: string[] = [
-    'codeDistributeur',
     'nom',
     'prenom',
     'telephone',
@@ -28,162 +27,12 @@ export class DistributeurListComponent {
   constructor(private canalService: CanalPlusServiceService) {}
 
   ngAfterViewInit() {
-    this.canalService.listeDistributeur().subscribe((data)=>{
+
+    this.canalService.listeDistrib().subscribe((data)=>{
       console.log(data);
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;
-    });
+    })
     
   }
 }
-
-export interface Distributeur {
-  nom: string;
-  codeDistributeur: number;
-  prenom: string;
-  telephone: string;
-  localite: string;
-}
-
-const ELEMENT_DATA: Distributeur[] = [
-  {
-    codeDistributeur: 1,
-    nom: 'Hydrogen',
-    prenom: 'Sofia',
-    telephone: '60606060',
-    localite: 'Ouahigouya',
-  },
-  {
-    codeDistributeur: 2,
-    nom: 'Helium',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 3,
-    nom: 'Lithium',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 4,
-    nom: 'Beryllium',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 5,
-    nom: 'Boron',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 6,
-    nom: 'Carbon',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 7,
-    nom: 'Nitrogen',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 8,
-    nom: 'Oxygen',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 9,
-    nom: 'Fluorine',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 10,
-    nom: 'Neon',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 11,
-    nom: 'Sodium',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 12,
-    nom: 'Magnesium',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 13,
-    nom: 'Aluminum',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 14,
-    nom: 'Silicon',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 15,
-    nom: 'Phosphorus',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 16,
-    nom: 'Sulfur',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 17,
-    nom: 'Chlorine',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 18,
-    nom: 'Argon',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 19,
-    nom: 'Potassium',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-  {
-    codeDistributeur: 20,
-    nom: 'Calcium',
-    prenom: 'Pierre',
-    telephone: '60606060',
-    localite: 'Po',
-  },
-];

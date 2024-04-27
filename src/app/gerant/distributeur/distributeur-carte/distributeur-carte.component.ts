@@ -30,7 +30,7 @@ export class DistributeurCarteComponent {
     if (this.map != undefined || this.map != null) {
       this.map.remove();
     }
-    this.canalService.listeDistributeur().subscribe((data) => {
+    this.canalService.listeDistrib().subscribe((data) => {
       console.log(data);
 
       let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

@@ -1,0 +1,28 @@
+<section>
+  <h1>Enregistrement d'une nouvelle demande</h1>
+  <p>Vous proceder a la validation finale du reabonnement</p>
+
+  <h1 style="color: red" *ngIf="montant$">
+    Avez-vous transferer la somme de : <strong>{{ montant$ }}</strong> CFA au
+    numero 67676767
+  </h1>
+
+  <p>
+    Si Oui Veuillez appuyer le bouton <strong>Enregistrer</strong> pour terminer
+    l'operation.
+  </p>
+  <p>
+    Si Non Veuillez proceder au versement de la somme ou appuyer sur le bouton
+    <strong>Annuler</strong>
+  </p>
+
+  <button
+    *ngIf="reabo$"
+    class="btn-dmd"
+    mat-raised-button
+    (click)="handleSubmit()"
+  >
+    Enregistrer
+  </button>
+  <button class="btn-annuler" (click)="onNoClick()" mat-raised-button>Annuler</button>
+</section>

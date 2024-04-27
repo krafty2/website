@@ -40,10 +40,8 @@ export class DistributeurFormComponent {
   handleSubmit() {
     console.log(this.distributeurForm.value);
 
-    this.canalService
-      .createDistributeur(this.distributeurForm.value)
-      .subscribe(() => {
-        console.log('reussi');
-      });
+    this.canalService.createDistrib(this.distributeurForm.value).subscribe((data)=>{
+      console.log('reussi');
+    })
   }
 }

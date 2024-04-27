@@ -13,11 +13,12 @@ import { CanalPlusServiceService } from '../../../_service/canal-plus-service.se
 })
 export class ReabonnmentListDistribComponent {
   displayedColumns: string[] = [
-    'numeroDecodeur',
+    'numero_decodeur',
     'bouquet',
     'duree',
-    'pourcentage',
+    'commission',
   ];
+
   dataSource:any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -25,7 +26,7 @@ export class ReabonnmentListDistribComponent {
   constructor(private distribService: CanalPlusServiceService) {}
 
   ngAfterViewInit() {
-    this.distribService.listeDReabo().subscribe((data) => {
+    this.distribService.listeReabonnement().subscribe((data) => {
       console.log( data);
 
       this.dataSource = new MatTableDataSource<any>(data); 

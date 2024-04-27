@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogCreateReaboComponent } from '../../reabonnement/dialog-create-reabo/dialog-create-reabo.component';
 
 @Component({
   selector: 'app-recrutement-form',
@@ -38,7 +40,8 @@ export class RecrutementFormComponent {
   
   constructor(
     private fb: FormBuilder,
-    private distribService: CanalPlusServiceService
+    private distribService: CanalPlusServiceService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -60,7 +63,7 @@ export class RecrutementFormComponent {
       demande: this.fb.group({
         typeDemande: ['recrutement'],
         date_demande: [this.formatDate(this.dateJ)],
-        commission: [''],
+        commission: ['1500'],
         duree_abonnement: [''],
         status: [Status.EN_ATTENTE],
         parabole:[this.parabole]
@@ -89,18 +92,24 @@ export class RecrutementFormComponent {
 
     if (bouquetChoisi) {
       this.montantTotal$ = dureeReabo * bouquetChoisi?.montant;
-      console.log(this.montantTotal$);
-      let commission = (this.montantTotal$ * 4) / 100;
-      console.log(commission);
-      this.installationForm.value.demande.commission = commission;
     }
 
     console.log(this.installationForm.value);
 
-    this.distribService.createRecrutementWithPara(this.installationForm.value).subscribe((data)=>{
-      if(data){
-         console.log('reussi');
-      }
-    })
+    // this.distribService.createRecrutementWithPara(this.installationForm.value).subscribe((data)=>{
+    //   if(data){
+    //      console.log('reussi');
+    //   }
+    // })
+
+    const dialogRef = this.dialog.open(DialogCreateReaboComponent, {
+      data: [this.installationForm.value,this.montantTotal$],
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+
+      console.log(result);
+    });
   }
 }

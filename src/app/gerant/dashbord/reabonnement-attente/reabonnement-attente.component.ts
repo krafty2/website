@@ -5,6 +5,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
 
 @Component({
   selector: 'app-reabonnement-attente',
@@ -20,101 +21,25 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './reabonnement-attente.component.css',
 })
 export class ReabonnementAttenteComponent {
-  displayedColumns: string[] = ['decodeur', 'bouquet', 'duree', 'statut'];
 
-  dataSource = new MatTableDataSource<Reabonnement>(ELEMENT_DATA);
+  displayedColumns: string[] = [
+    'bouquet',
+    'duree',
+    'decodeur',
+    'status',
+  ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+  dataSource:any;
+  
+  constructor(private canalService: CanalPlusServiceService) {}
+
+  ngOnInit() {
+    this.canalService.listeRecrutementEnAttente().subscribe((data) => {
+      this.dataSource = new MatTableDataSource<any>(data);
+      this.dataSource.paginator = this.paginator;
+      console.log(data);
+    });
   }
 }
-
-export interface Reabonnement {
-  numeroDecodeur: string;
-  bouquet: string;
-  duree: string;
-  statut: string;
-}
-
-const ELEMENT_DATA: Reabonnement[] = [
-  {
-    numeroDecodeur: 'D004FJSJN',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    numeroDecodeur: 'D004FJSJNAK',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-];
