@@ -11,25 +11,37 @@ section {
 .indice {
     display: flex;
     align-items: center;
-    gap: 14px;
-    background: #262626;
-    color: #fff;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    background: #c1c1c13a;
+    color: var(--text-color-02);
     width: fit-content;
-    padding: 14px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.indice p:first-child{
+    font-weight: 600;
+}
+
+.indice p{
+    letter-spacing: 1px;
+    margin: 0;
 }
 
 .in-prefixe {
-    font-size: 4rem;
+    font-size: clamp(1rem,3vw,1.5rem);
 }
 
-.notification{
+.notification {
     display: grid;
     gap: 24px;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     margin-block: 24px;
 }
 
-.notification > div{
-     border: 1px solid #c1c1c1;
+.notification>div {
+    border: 1px solid #c1c1c1;
 }

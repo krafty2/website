@@ -1,0 +1,30 @@
+section{
+    width: 45vw;
+}
+
+h3{
+    font-weight: 600;
+}
+
+p{
+    margin: 0;
+}
+
+.date-validation{
+    border-top:1px solid #c1c1c1 ;
+    border-bottom: 1px solid #c1c1c1;
+    padding-block: 8px;
+    margin-block-end: 8px;
+}
+
+.grid-info{
+    display: grid;
+    grid-template-columns: repeat(2,0.5fr);
+}
+
+.info{
+    color: var(--text-color-02);
+    font-weight: 600;
+    border: none;
+    margin-block: 2px;
+}

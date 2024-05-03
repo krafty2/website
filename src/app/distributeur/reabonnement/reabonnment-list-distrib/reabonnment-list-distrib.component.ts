@@ -26,14 +26,12 @@ export class ReabonnmentListDistribComponent {
   constructor(private distribService: CanalPlusServiceService) {}
 
   ngAfterViewInit() {
-    this.distribService.listeReabonnement().subscribe((data) => {
+    this.distribService.listDistribReabo("reabonnement").subscribe((data) => {
       console.log( data);
 
       this.dataSource = new MatTableDataSource<any>(data); 
       this.dataSource.paginator = this.paginator;
     });
-
-   
   }
 }
 

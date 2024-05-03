@@ -38,13 +38,14 @@ export class DialogCreateReaboComponent {
   handleSubmit() {
     
     if (this.reabo$.demande.typeDemande == "reabonnement") {
+      console.log(this.reabo$);
       this.distribService.createDemande(this.reabo$).subscribe((response) => {
         console.log('reussi' + response.status);
         window.location.reload();
       });
     } else if (this.reabo$.demande.typeDemande == "recrutement") {
       this.distribService
-        .createRecrutementWithoutPara(this.reabo$)
+        .createRecrutemen(this.reabo$)
         .subscribe((data) => {
           if (data) {
             console.log('reussi');

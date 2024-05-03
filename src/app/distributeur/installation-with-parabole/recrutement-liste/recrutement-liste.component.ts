@@ -26,7 +26,7 @@ export class RecrutementListeComponent {
   constructor(private distribService: CanalPlusServiceService) {}
 
   ngOnInit(){
-    this.distribService.listRecrutement().subscribe((data)=>{
+    this.distribService.listDistribReabo("recrutement").subscribe((data)=>{
       console.table(data);
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;

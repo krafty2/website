@@ -14,11 +14,11 @@ section {
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
-button {
+.btn-submit {
   background: #0267c1 !important;
   color: #ffffff !important;
 }

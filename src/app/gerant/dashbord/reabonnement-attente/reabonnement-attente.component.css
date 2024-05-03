@@ -1,0 +1,20 @@
+.content-reabo {
+
+    padding: 4px;
+}
+
+.reabo-customer-head {
+    background: #fff;
+    padding: 12px;
+    color: #262626;
+}
+
+.reabo-customer-head h3 {
+    margin: 0;
+    padding: 0 !important;
+}
+
+.reabo-customer-head p {
+    color: #262626b4;
+    margin: 0;
+}

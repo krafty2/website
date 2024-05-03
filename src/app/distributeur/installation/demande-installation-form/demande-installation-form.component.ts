@@ -64,7 +64,8 @@ export class DemandeInstallationFormComponent {
         commission: ['1500'],
         duree_abonnement: [''],
         status: [Status.EN_ATTENTE],
-        parabole:[this.parabole]
+        parabole:[this.parabole],
+        montantDemande:['']
       }),
     });
   }
@@ -90,6 +91,7 @@ export class DemandeInstallationFormComponent {
 
     if (bouquetChoisi) {
       this.montantTotal$ = dureeReabo * bouquetChoisi?.montant;
+      this.installationForm.value.demande.montantDemande = this.montantTotal$;
     }
 
     console.log(this.installationForm.value);

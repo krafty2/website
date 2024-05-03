@@ -65,7 +65,63 @@ h1{
 }
 
 .info-demande-attente{
-    background: #fff;
+    /* background: #fff; */
+}
+
+.offre-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: 18px;
+}
+
+.offre-head h3{
+    text-align: center;
+    margin-block-start: 14px;
+}
+
+.btn-add-offre{
+    background: #c1c1c125;
+   
+}
+
+.grid-table{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.grid-table p{
+    border-bottom: 1px solid #c1c1c1;
+    padding: 8px;
+    margin: 0;
+}
+
+.grid-table.head p:nth-child(1){
+    font-weight: 600;
+    border-top:1px solid #c1c1c1 ;
+}
+
+.grid-table.head p:nth-child(2){
+    font-weight: 600;
+    border-top:1px solid #c1c1c1 ;
+}
+.grid-table.head p:nth-child(3){
+    font-weight: 600;
+    border-top:1px solid #c1c1c1 ;
+}
+
+.offre{
+    margin: 0;
+}
+
+.offre p{
+    display: flex;
+    align-items: center;
+    
+    padding-block: 0;
+    font-size: 14px;
+    color: var(--text-color-02);
+    text-transform:capitalize;
 }
 
 #myMap {

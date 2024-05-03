@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-reabonnement-list',
@@ -16,6 +17,7 @@ import { CanalPlusServiceService } from '../../../_service/canal-plus-service.se
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
+    DatePipe
   ],
   templateUrl: './reabonnement-list.component.html',
   styleUrl: './reabonnement-list.component.css',
@@ -41,7 +43,7 @@ export class ReabonnementListComponent {
 
   ngOnInit() {
     this.canalService.listeReabonnement().subscribe((data) => {
-      console.log(data);
+      
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;
     });

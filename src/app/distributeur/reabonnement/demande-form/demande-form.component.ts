@@ -58,6 +58,7 @@ export class DemandeFormComponent {
         commission: [''],
         duree_abonnement: [''],
         status: [Status.EN_ATTENTE],
+        montantDemande:['']
       }),
     });
   }
@@ -86,6 +87,7 @@ export class DemandeFormComponent {
       let commission = (this.montantTotal$ * 4) / 100;
       console.log(commission);
       this.reaboForm.value.demande.commission = commission;
+      this.reaboForm.value.demande.montantDemande = this.montantTotal$;
     }
 
     // console.log(this.reaboForm.value);

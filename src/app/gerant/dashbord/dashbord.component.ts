@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CanalPlusServiceService } from '../../_service/canal-plus-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreateOffreComponent } from '../Offre/dialog-create-offre/dialog-create-offre.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -28,6 +29,7 @@ import { DialogCreateOffreComponent } from '../Offre/dialog-create-offre/dialog-
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
+    CommonModule
   ],
   templateUrl: './dashbord.component.html',
   styleUrl: './dashbord.component.css',
@@ -36,8 +38,16 @@ export class DashbordComponent {
   map: any;
   mark:any;
 
+  listOffre:any;
+
   constructor(private canalService: CanalPlusServiceService,public dialog: MatDialog) {
    
+  }
+
+  ngOnInit(){
+    this.canalService.listesOffre().subscribe((data)=>{
+      this.listOffre = data;
+    })
   }
 
   openDialogOffre(){

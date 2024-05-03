@@ -1,3 +1,21 @@
 section{
     padding: 24px;
 }
+
+.custom-list-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 14px;
+    background: #c1c1c12f;
+    padding: 4px;
+}
+
+.custom-head h3{
+    margin: 0;
+}
+
+.custom-head p{
+    color: #2626268c;
+    margin: 0;
+}

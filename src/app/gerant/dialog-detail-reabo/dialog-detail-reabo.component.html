@@ -1,0 +1,58 @@
+<section>
+  <h2 mat-dialog-title>Validation de la demande - {{ data.offre.bouquet }}</h2>
+  <form>
+    <mat-dialog-content class="mat-typography">
+      <div class="date-validation">
+        <h2>Entrer la date effectif de debut d'abonnement</h2>
+        <mat-form-field color="accent">
+          <mat-label>Debut abonnement</mat-label>
+          <input [formControl]="date" matInput [matDatepicker]="picker2">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2 color="primary"></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="distrib-info-content">
+        <h3>Information sur le distributeur</h3>
+        <div class="grid-info">
+          <p>Distributeur</p>
+          <p class="info">{{ data.distributeur.nom }} {{ data.distributeur.prenom }}</p>
+          <p>Localité</p>
+          <p class="info">{{ data.distributeur.localite }}</p>
+          <p>Telephone</p>
+          <p class="info">{{ data.distributeur.telephone }}</p>
+        </div>
+
+        <h3>Information sur le client</h3>
+
+        <div class="grid-info">
+          <p >Client</p>
+          <p class="info">{{ data.client.nom }} {{ data.client.prenom }}</p>
+          <p>Telephone</p>
+          <p class="info">{{ data.client.telephone }}</p>
+          <p>Decodeur</p>
+          <p class="info">{{ data.client.decodeur }}</p>
+        </div>
+      </div>
+
+      <h3>Information sur la demande</h3>
+      <div class="grid-info">
+        <p>Type de demande</p>
+        <p class="info">{{ data.typeDemande }}</p>
+        <p>Date de la demande</p>
+        <p class="info">{{ data.date_demande | date : "shortDate" : "fr-FR" }}</p>
+        <p>Commission</p>
+        <p class="info">{{ data.commission }} Francs CFA</p>
+        <p>Montant Versé</p>
+        <p class="info">{{ data.montantDemande }} Francs CFA</p>
+      </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Fermer</button>
+      <button mat-button (click)="handleSubmit()" [mat-dialog-close]="true" cdkFocusInitial>
+        Valider
+      </button>
+    </mat-dialog-actions>
+  </form>
+</section>

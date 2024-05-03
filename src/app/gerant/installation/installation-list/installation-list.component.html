@@ -50,18 +50,18 @@
         <!-- Weight Column -->
         <ng-container matColumnDef="dateDemande">
           <th mat-header-cell *matHeaderCellDef>Date Demande</th>
-          <td mat-cell *matCellDef="let element">{{ element.date_demande }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.date_demande | date:"shortDate" : "fr-FR" }}</td>
         </ng-container>
   
         <!-- Symbol Column -->
         <ng-container matColumnDef="date_debutAbonnement">
           <th mat-header-cell *matHeaderCellDef>Date Debut Abonnement</th>
-          <td mat-cell *matCellDef="let element">{{ element.date_debutAbonnement }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.date_debutAbonnement | date: "shortDate" : "fr-FR" }}</td>
         </ng-container>
 
         <ng-container matColumnDef="date_finAbonnement">
           <th mat-header-cell *matHeaderCellDef>Date fin Abonnement</th>
-          <td mat-cell *matCellDef="let element">{{ element.date_finAbonnement }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.date_finAbonnement | date: "shortDate" : "fr-FR" }}</td>
         </ng-container>
 
         <ng-container matColumnDef="commission">

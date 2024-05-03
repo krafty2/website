@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../../_service/auth.service';
 import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
 import { max } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-distributeur-form',
@@ -15,12 +16,15 @@ import { max } from 'rxjs';
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatIconModule
   ],
   templateUrl: './distributeur-form.component.html',
   styleUrl: './distributeur-form.component.css',
 })
 export class DistributeurFormComponent {
   distributeurForm!: FormGroup;
+
+  hide:boolean=true;
 
   constructor(
     private fb: FormBuilder,
@@ -30,10 +34,12 @@ export class DistributeurFormComponent {
     this.distributeurForm = this.fb.group({
       nom: ['',[Validators.required]],
       prenom: ['',[Validators.required]],
+      username:['',[Validators.required]],
       telephone: [''],
       localite: [''],
       longitude: ['',[Validators.max(15),Validators.min(-7)]],
       latitude: ['',[Validators.max(15),Validators.min(-7)]],
+      password:['']
     });
   }
 
@@ -42,6 +48,7 @@ export class DistributeurFormComponent {
 
     this.canalService.createDistrib(this.distributeurForm.value).subscribe((data)=>{
       console.log('reussi');
+      window.location.reload();
     })
   }
 }

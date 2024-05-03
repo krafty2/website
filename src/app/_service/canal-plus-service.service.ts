@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Offre } from '../_models/offre';
@@ -6,13 +6,13 @@ import { Offre } from '../_models/offre';
 @Injectable({
   providedIn: 'root',
 })
-
 export class CanalPlusServiceService {
   private baseUrl = 'http://localhost:8080';
 
   //distrib url
-  private saveDistrib:string=this.baseUrl +'/distrib/save_distributeur';
-  private allDistrib:string=this.baseUrl + '/distrib/all_distrib';
+  private saveDistrib: string = this.baseUrl + '/distrib/save_distributeur';
+  private allDistrib: string = this.baseUrl + '/distrib/all_distrib';
+  private listDistribDemande : string = this.baseUrl + '/distrib/distrib_demande'
 
   //offre url
   private saveOffre: string = this.baseUrl + '/offre/save_offre';
@@ -23,24 +23,26 @@ export class CanalPlusServiceService {
   private saveDemande: string = this.baseUrl + '/demande/save_demande';
 
   //demande liste url
-  private recrutementWithoutPara =
-    this.baseUrl + '/demande/recrutement_without_parabole';
-  private recrutementWithPara =
-    this.baseUrl + '/demande/recrutement_with_parabole';
+  private recrutement =
+    this.baseUrl + '/demande/recrutement';
+  //gerant
   private recrutementListe = this.baseUrl + '/demande/recrutement';
   private reabonnementListe = this.baseUrl + '/demande/reabonnement';
+  private upDemande: string = this.baseUrl + '/demande/update_demande';
 
   //
   private recruEnAttente = this.baseUrl + '/demande/recru_en_attente';
   private reaboEnAttente = this.baseUrl + '/demande/reabo_en_attente';
 
+  constructor(private http: HttpClient) {}
+
   //Distributeur
 
-  createDistrib(distributeur:any):Observable<any>{
-    return this.http.post<any>(`${this.saveDistrib}`,distributeur);
+  createDistrib(distributeur: any): Observable<any> {
+    return this.http.post<any>(`${this.saveDistrib}`, distributeur);
   }
 
-  listeDistrib():Observable<any>{
+  listeDistrib(): Observable<any> {
     return this.http.get<any>(`${this.allDistrib}`);
   }
 
@@ -63,63 +65,33 @@ export class CanalPlusServiceService {
     return this.http.post<any>(`${this.saveDemande}`, demande);
   }
 
-  createRecrutementWithoutPara(demande: any): Observable<any> {
-    return this.http.post<any>(`${this.recrutementWithoutPara}`, demande);
+  majDemande(demande: any): Observable<any> {
+    return this.http.put<any>(`${this.upDemande}`, demande);
   }
 
-  createRecrutementWithPara(demande: any): Observable<any> {
-    return this.http.post<any>(`${this.recrutementWithPara}`, demande);
+  //Distrib api
+  createRecrutemen(demande: any): Observable<any> {
+    return this.http.post<any>(`${this.recrutement}`, demande);
   }
 
-  listRecrutement():Observable<any>{
+  listDistribReabo(typeDemande:string):Observable<any>{
+    return this.http.get<any>(`${this.listDistribDemande}/${typeDemande}`);
+  }
+
+  //Gerant api
+  listRecrutement(): Observable<any> {
     return this.http.get<any>(`${this.recrutementListe}`);
   }
 
-  listeReabonnement():Observable<any>{
+  listeReabonnement(): Observable<any> {
     return this.http.get<any>(`${this.reabonnementListe}`);
   }
 
-  listeRecrutementEnAttente():Observable<any>{
+  listeRecrutementEnAttente(): Observable<any> {
     return this.http.get<any>(`${this.recruEnAttente}`);
   }
 
-  listeReaboEnttente():Observable<any>{
+  listeReaboEnttente(): Observable<any> {
     return this.http.get<any>(`${this.reaboEnAttente}`);
   }
-
-  //--------------------------------------------------------------------------------------------------
-  uri: string = 'http://localhost:3000/';
-
-  demandeApi: string = this.uri + 'demande';
-
-  demandeInstall: string = this.uri + 'demandeInstall';
-
-  distributeurs: string = this.uri + 'distributeurs';
-  constructor(private http: HttpClient) {}
-
-  createDReabo(demande: any): Observable<any> {
-    return this.http.post<any>(`${this.demandeApi}`, demande);
-  }
-
-  listeDReabo(): Observable<any> {
-    return this.http.get<any>(`${this.demandeApi}`);
-  }
-
-  createDInstall(demande: any): Observable<any> {
-    return this.http.post<any>(`${this.demandeInstall}`, demande);
-  }
-
-  listeDInstall(): Observable<any> {
-    return this.http.get<any>(`${this.demandeInstall}`);
-  }
-
-  createDistributeur(distributeur: any): Observable<any> {
-    return this.http.post(`${this.distributeurs}`, distributeur);
-  }
-
-  listeDistributeur(): Observable<any> {
-    return this.http.get<any>(`${this.distributeurs}`);
-  }
-
-  ////////-----------------------------------------------------------------------
 }

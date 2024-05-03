@@ -46,7 +46,6 @@
   
   body {
     height: 100vh;
-    background: red !important;
   }
   
   section {
@@ -61,11 +60,11 @@
   } */
   
   .mat-mdc-table .mat-mdc-header-cell {
-    background: #c1c1c11f !important;
+    /* background: #c1c1c11f !important; */
     /* text-transform: uppercase; */
-    color: #262626;
+    color: var(--text-color-02);
     font-size: 1rem;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
   }
   
   .bbst-dialog-body {

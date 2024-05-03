@@ -25,11 +25,11 @@ export class InstallationListDistribComponent {
   constructor(private distribService: CanalPlusServiceService) {}
 
   ngAfterViewInit() {
-    this.distribService.listeDInstall().subscribe((data) => {
-      console.log((data))
-      this.dataSource = new MatTableDataSource<any>(data);
-      this.dataSource.paginator = this.paginator;
-    });
+    // this.distribService.listeDInstall().subscribe((data) => {
+    //   console.log((data))
+    //   this.dataSource = new MatTableDataSource<any>(data);
+    //   this.dataSource.paginator = this.paginator;
+    // });
   }
 }
 

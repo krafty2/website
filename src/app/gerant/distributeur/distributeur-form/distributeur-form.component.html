@@ -1,6 +1,4 @@
 <section class="mat-elevation-z2">
-    <h1>Creation d'un distributeur</h1>
-
   <form [formGroup]="distributeurForm" (ngSubmit)="handleSubmit()">
     <div class="form-grid">
       <mat-form-field class="example-full-width">
@@ -11,8 +9,11 @@
         <mat-label>prenom</mat-label>
         <input matInput formControlName="prenom" placeholder="Ex. Pierre" />
       </mat-form-field>
-    </div>
-    <div class="form-grid">
+      <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" placeholder="Ex. Pierre" />
+      </mat-form-field>
+
       <mat-form-field class="example-full-width">
         <mat-label>Telephone</mat-label>
         <input matInput formControlName="telephone" placeholder="Ex. Traore" />
@@ -21,8 +22,7 @@
         <mat-label>Localite</mat-label>
         <input matInput formControlName="localite" placeholder="Ex. Pierre" />
       </mat-form-field>
-    </div>
-    <div class="form-grid">
+
       <mat-form-field class="example-full-width">
         <mat-label>Longitude</mat-label>
         <input matInput type="number" formControlName="longitude" placeholder="Ex. 12.000" />
@@ -31,9 +31,31 @@
         <mat-label>Latitude</mat-label>
         <input matInput type="number" formControlName="latitude" placeholder="Ex. -1.000" />
       </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Mot de passe</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+   
+    <div>
+      
+
+      
+
+      <!-- <mat-form-field>
+        <mat-label>Confirme Mot de passe</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field> -->
     </div>
     <div class="form-grid">
-      <button [disabled]="!distributeurForm.valid" mat-raised-button type="submit">Enregistrer</button>
+      <button class="btn-submit" [disabled]="!distributeurForm.valid" mat-raised-button type="submit">Enregistrer</button>
       
     </div>
   </form>

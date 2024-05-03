@@ -1,38 +1,72 @@
 <section>
   <h1 class="dash">Dashbord</h1>
-  
+
   <!-- <div>
     <button mat-raised-button (click)="openDialogOffre()">Ajouter Offre</button>
   </div> -->
   <div class="notification">
     <div>
-      <div class="indicateur-container" style="margin-block: 8px;background: #fff;padding: 6px;">
+      <div
+        class="indicateur-container"
+        style="margin-block: 8px; background: #fff; padding: 6px"
+      >
         <div class="indice">
           <p>Distributeurs</p>
           <p>5</p>
         </div>
         <div class="indice">
           <p>Clients</p>
-          <p >5</p>
+          <p>5</p>
         </div>
         <div class="indice">
           <p>Chiffre d'affaire globale</p>
           <p>1.000.000 CFA</p>
         </div>
       </div>
-      <div style="margin-block: 8px;background: #fff;padding: 6px;">
-        <h3>Les differentes offres</h3>
+      <div style="margin-block: 8px; background: #fff; padding: 6px">
+        <div class="offre-head">
+          <h3>Offres</h3>
+
+          <button
+            class="btn-add-offre"
+            mat-icon-button
+            (click)="openDialogOffre()"
+          >
+          <mat-icon>add</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <div class="grid-table head">
+            <p>Offre</p>
+            <p>Montant</p>
+            <p></p>
+          </div>
+          <div *ngFor="let offre of listOffre" class="grid-table offre">
+            <p>
+              {{ offre.bouquet }}
+            </p>
+            <p>{{ offre.montant }} Francs CFA</p>
+            <p style="justify-content: end;padding-inline-end: 24px;"><button
+              class="btn-add-offre"
+              mat-icon-button
+              (click)="openDialogOffre()"
+            >
+            <mat-icon style=" font-size: 24px;">edit</mat-icon>
+            </button></p>
+          </div>
+          <!-- <p *ngFor="let offre of listOffre">
+            {{offre.bouquet}} {{offre.montant}}
+          </p> -->
+        </div>
       </div>
-      
     </div>
 
     <div>
       <div class="info-demande-attente">
-        <h3 style="padding: 12px; font-weight: 400">Reabonnement en attente</h3>
         <app-reabonnement-attente />
       </div>
       <div class="info-demande-attente">
-        <h3 style="padding: 12px; font-weight: 400">Installation en attente</h3>
         <app-installation-attente />
       </div>
     </div>
