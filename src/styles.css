@@ -9,6 +9,11 @@
     --text-color-02: #215caa;
     --text-color-03: #2c2c2c;
   }
+
+  @font-face {
+    font-family: EncodeSansSemiExpanded-Regular;
+    src: url(assets/fonts/Encode_Sans_Semi_Expanded/EncodeSansSemiExpanded-Regular.ttf);
+  }
   
   /* @font-face {
     font-family: Lato-Regular;

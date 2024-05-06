@@ -7,6 +7,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
 import { DatePipe } from '@angular/common';
+import { DialogDetailReaboComponent } from '../../dialog-detail-reabo/dialog-detail-reabo.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-reabonnement-list',
@@ -39,7 +41,7 @@ export class ReabonnementListComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private canalService: CanalPlusServiceService) {}
+  constructor(private canalService: CanalPlusServiceService,public dialog:MatDialog) {}
 
   ngOnInit() {
     this.canalService.listeReabonnement().subscribe((data) => {
@@ -48,106 +50,17 @@ export class ReabonnementListComponent {
       this.dataSource.paginator = this.paginator;
     });
   }
-}
 
-export interface Reabonnement {
-  codeReabonnement: string;
-  codeDistributeur: string;
-  bouquet: string;
-  duree: string;
-  statut: string;
-}
+  openDialogValidation(demande:any){
+    let vue=true;
+    const dialogRef = this.dialog.open(DialogDetailReaboComponent, {
+      data: [demande,vue],
+    });
 
-const ELEMENT_DATA: Reabonnement[] = [
-  {
-    codeReabonnement: 'R001',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R002',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R003',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R004',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R005',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R006',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R007',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R008',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R009',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R010',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R011',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R012',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-  {
-    codeReabonnement: 'R013',
-    codeDistributeur: 'D004',
-    bouquet: 'Acces +',
-    duree: '12 mois',
-    statut: 'En attente',
-  },
-];
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+
+      console.log(result);
+    });
+  }
+}

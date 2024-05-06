@@ -2,6 +2,10 @@ section {
     padding: 24px;
 }
 
+h2{
+    padding-inline: 14px ;
+}
+
 .custom-filtre {
     height: 140px;
     width: 100%;

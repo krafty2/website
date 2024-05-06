@@ -16,7 +16,8 @@
     <strong>Annuler</strong>
   </p>
 
-  <button
+  <div style="margin-block-start:42px;">
+    <button
     *ngIf="reabo$"
     class="btn-dmd"
     mat-raised-button
@@ -25,4 +26,6 @@
     Enregistrer
   </button>
   <button class="btn-annuler" (click)="onNoClick()" mat-raised-button>Annuler</button>
+  </div>
+  
 </section>

@@ -7,6 +7,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
 import { DatePipe } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogDetailReaboComponent } from '../../dialog-detail-reabo/dialog-detail-reabo.component';
 
 @Component({
   selector: 'app-installation-list',
@@ -38,13 +40,26 @@ export class InstallationListComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private canalService: CanalPlusServiceService) {}
+  constructor(private canalService: CanalPlusServiceService,public dialog:MatDialog) {}
 
   ngOnInit() {
     this.canalService.listRecrutement().subscribe((data) => {
       console.log(data);
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;
+    });
+  }
+
+  openDialogValidation(demande:any){
+    let vue = true;
+    const dialogRef = this.dialog.open(DialogDetailReaboComponent, {
+      data: [demande,vue],
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+
+      console.log(result);
     });
   }
 }

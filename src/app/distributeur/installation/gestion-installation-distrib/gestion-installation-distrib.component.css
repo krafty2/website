@@ -2,3 +2,9 @@ section{
     padding: 12px;
     padding-inline: 16%;
 }
+
+@media only screen and (max-width: 430px) {
+    section{
+        padding-inline: 4%;
+    }
+}

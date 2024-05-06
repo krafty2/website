@@ -1,14 +1,24 @@
 section {
     padding: 12px;
     padding-inline: 6%;
+    background: #f8f8f8;
 }
 
 .indicateur-container {
     display: flex;
     gap: 14px;
+    background: #fff;
+    padding: 14px;
 }
 
-.indice {
+.indicateur-container span{
+    background: #c1c1c13a;
+    padding: 12px;
+    letter-spacing: 1px;
+    color: var(--text-color-02);
+}
+
+/* .indice {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,9 +29,9 @@ section {
     width: fit-content;
     padding: 8px;
     border-radius: 4px;
-}
+} */
 
-.indice p:first-child{
+/* .indice p:first-child{
     font-weight: 600;
 }
 
@@ -32,7 +42,7 @@ section {
 
 .in-prefixe {
     font-size: clamp(1rem,3vw,1.5rem);
-}
+} */
 
 .notification {
     display: grid;
@@ -44,4 +54,15 @@ section {
 
 .notification>div {
     border: 1px solid #c1c1c1;
+}
+
+@media only screen and (max-width: 730px) {
+    .notification{
+        grid-template-columns: 1fr;
+    }
+
+    .demande-tab{
+        width: auto;
+        overflow-x: scroll;
+    }
 }

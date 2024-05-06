@@ -20,3 +20,9 @@
     background: #0267c1 !important;
     color: #ffffff !important;
   }
+
+  @media only screen and (max-width: 730px) {
+    .form-grid{
+      grid-template-columns: 1fr;
+    }
+  }

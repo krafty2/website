@@ -49,8 +49,9 @@ export class InstallationAttenteComponent {
 
   
   openDialogValidation(demande:any){
+    let vue = false;
     const dialogRef = this.dialog.open(DialogDetailReaboComponent, {
-      data: demande,
+      data: [demande,vue],
     });
 
     dialogRef.afterClosed().subscribe((result) => {

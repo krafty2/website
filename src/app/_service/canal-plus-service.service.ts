@@ -11,8 +11,10 @@ export class CanalPlusServiceService {
 
   //distrib url
   private saveDistrib: string = this.baseUrl + '/distrib/save_distributeur';
+  private updateDistrib: string = this.baseUrl + '/distrib/update_distributeur';
   private allDistrib: string = this.baseUrl + '/distrib/all_distrib';
-  private listDistribDemande : string = this.baseUrl + '/distrib/distrib_demande'
+  private listDistribDemande: string =
+    this.baseUrl + '/distrib/distrib_demande';
 
   //offre url
   private saveOffre: string = this.baseUrl + '/offre/save_offre';
@@ -23,8 +25,7 @@ export class CanalPlusServiceService {
   private saveDemande: string = this.baseUrl + '/demande/save_demande';
 
   //demande liste url
-  private recrutement =
-    this.baseUrl + '/demande/recrutement';
+  private recrutement = this.baseUrl + '/demande/recrutement';
   //gerant
   private recrutementListe = this.baseUrl + '/demande/recrutement';
   private reabonnementListe = this.baseUrl + '/demande/reabonnement';
@@ -40,6 +41,10 @@ export class CanalPlusServiceService {
 
   createDistrib(distributeur: any): Observable<any> {
     return this.http.post<any>(`${this.saveDistrib}`, distributeur);
+  }
+
+  updateDistribS(distributeur: any): Observable<any> {
+    return this.http.put<any>(`${this.updateDistrib}`, distributeur);
   }
 
   listeDistrib(): Observable<any> {
@@ -74,7 +79,7 @@ export class CanalPlusServiceService {
     return this.http.post<any>(`${this.recrutement}`, demande);
   }
 
-  listDistribReabo(typeDemande:string):Observable<any>{
+  listDistribReabo(typeDemande: string): Observable<any> {
     return this.http.get<any>(`${this.listDistribDemande}/${typeDemande}`);
   }
 

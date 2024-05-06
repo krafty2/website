@@ -1,39 +1,48 @@
 <section class="mat-elevation-z2">
   <h1>Recrutement</h1>
+  <div>
+    <table mat-table [dataSource]="dataSource">
+      <!-- Position Column -->
+      <ng-container matColumnDef="numero_decodeur">
+        <th mat-header-cell *matHeaderCellDef>Numero Decodeur.</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.numero_decodeur }}
+        </td>
+      </ng-container>
 
-  <table mat-table [dataSource]="dataSource">
-    <!-- Position Column -->
-    <ng-container matColumnDef="numero_decodeur">
-      <th mat-header-cell *matHeaderCellDef>Numero Decodeur.</th>
-      <td mat-cell *matCellDef="let element">{{ element.numero_decodeur}}</td>
-    </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="bouquet">
+        <th mat-header-cell *matHeaderCellDef>Bouquet</th>
+        <td mat-cell *matCellDef="let element">{{ element.bouquet }}</td>
+      </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="bouquet">
-      <th mat-header-cell *matHeaderCellDef>Bouquet</th>
-      <td mat-cell *matCellDef="let element">{{ element.bouquet }}</td>
-    </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="duree">
+        <th mat-header-cell *matHeaderCellDef>Duree</th>
+        <td mat-cell *matCellDef="let element">{{ element.duree }}</td>
+      </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="duree">
-      <th mat-header-cell *matHeaderCellDef>Duree</th>
-      <td mat-cell *matCellDef="let element">{{ element.duree }}</td>
-    </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="pourcentage_percu">
+        <th mat-header-cell *matHeaderCellDef>Pourcentage</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.pourcentage_percu }}
+        </td>
+      </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="pourcentage_percu">
-      <th mat-header-cell *matHeaderCellDef>Pourcentage</th>
-      <td mat-cell *matCellDef="let element">{{ element.pourcentage_percu}}</td>
-    </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-
-  <mat-paginator
-    [pageSizeOptions]="[5, 10, 20]"
-    showFirstLastButtons
-    aria-label="Select page of periodic elements"
-  >
-  </mat-paginator>
+  <div style="width: 100% !important;margin: 0;padding: 0;">
+    <mat-paginator
+      style="width: 100% !important"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      [hidePageSize]="true"
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
 </section>

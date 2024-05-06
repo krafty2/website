@@ -1,6 +1,6 @@
 <section class="mat-elevation-z2">
   <h1>Demande de reabonnement</h1>
-
+  <p>Entrer les informations pour un nouvel abonnement</p>
   <form [formGroup]="reaboForm" (ngSubmit)="handleSubmit()">
     <div class="form-grid">
       <div formGroupName="demande">
@@ -26,21 +26,16 @@
           </mat-select>
         </mat-form-field>
       </div>
-    </div>
-
-    <div class="form-grid">
-      <mat-form-field class="full-width">
-        <mat-label>Numero decodeur</mat-label>
-        <input
-          matInput
-          placeholder="Ex. 2782000022022"
-          formControlName="numero_decodeur"
-        />
-      </mat-form-field>
-      <!-- <mat-form-field class="example-full-width">
-        <mat-label>prenom</mat-label>
-        <input matInput placeholder="Ex. Pierre" />
-      </mat-form-field> -->
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Numero decodeur</mat-label>
+          <input
+            matInput
+            placeholder="Ex. 2782000022022"
+            formControlName="numero_decodeur"
+          />
+        </mat-form-field>
+      </div>
     </div>
 
     <div class="form-grid">

@@ -1,7 +1,5 @@
 <section>
-    <div class="custom-filtre mat-elevation-z2">
-      <h2>Filtre</h2>
-    </div>
+    <h2>Liste des recrutements</h2>
     <div>
       <table mat-table [dataSource]="dataSource">
         <!-- Position Column -->
@@ -19,15 +17,11 @@
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item>
-                  <mat-icon>dialpad</mat-icon>
+                <button (click)="openDialogValidation(element)" mat-menu-item>
+                  <mat-icon>visibility</mat-icon>
                   <span>Voir</span>
                 </button>
-                
-                <button mat-menu-item>
-                  <mat-icon>check</mat-icon>
-                  <span>Valider</span>
-                </button>
+              
               </mat-menu>
               {{ element.offre.bouquet }}
             </div>

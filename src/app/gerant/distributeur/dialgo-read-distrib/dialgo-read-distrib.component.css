@@ -1,0 +1,32 @@
+section{
+    background: #c1c1c11c;
+    font-family: EncodeSansSemiExpanded-Regular,sans-serif !important;
+    width: 50vw;
+}
+
+.custom-title{
+    font-weight: 400;
+    font-size: clamp(1rem,3vw,1.3rem);
+}
+
+.info-distrib-pref{
+    font-size: clamp(0.8rem,3vw,1rem);
+    font-weight: 300;
+    color: #171717ad;
+    
+}
+
+.info-distrib-suff{
+    font-weight: 600;
+    color: #171717;
+}
+
+.info-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.custom-detail{
+    background: #fff;
+    padding: 14px;
+}

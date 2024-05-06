@@ -17,7 +17,7 @@ import {
 } from '@angular/forms';
 import { Status } from '../../_models/demande';
 import { CanalPlusServiceService } from '../../_service/canal-plus-service.service';
-import { CurrencyPipe, DatePipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 @Component({
   selector: 'app-dialog-detail-reabo',
   standalone: true,
@@ -28,7 +28,8 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
     MatInputModule,
     MatDatepickerModule,
     ReactiveFormsModule,
-    DatePipe
+    DatePipe,
+    CommonModule
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-detail-reabo.component.html',
@@ -39,6 +40,10 @@ export class DialogDetailReaboComponent {
 
   dateDebut!: Date;
 
+  demande!:any;
+
+  modeVue!:boolean;
+
   constructor(
     public dialogRef: MatDialogRef<DialogDetailReaboComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -46,10 +51,11 @@ export class DialogDetailReaboComponent {
   ) {}
 
   ngOnInit() {
+    console.log(this.data[0])
     // this.data.date_debutAbonnement = '2020-22-2';
-
     this.date.setValue(new Date());
-    console.log(this.data);
+    this.demande = this.data[0];
+    this.modeVue = this.data[1];
   }
 
   formatDate(date: any) {
@@ -71,13 +77,13 @@ export class DialogDetailReaboComponent {
     let day = this.date.value?.getDate();
     let year = this.date.value?.getFullYear();
     if (year && mois && day) {
-      let dateFin = new Date(year, mois + this.data.duree_abonnement, day);
+      let dateFin = new Date(year, mois + this.demande.duree_abonnement, day);
       console.log(dateFin);
-      this.data.date_debutAbonnement = this.formatDate(this.date.value);
-      this.data.date_finAbonnement = this.formatDate(dateFin);
-      this.data.status = Status.VALIDE;
-      console.log(this.data);
-      let demande = this.data;
+      this.demande.date_debutAbonnement = this.formatDate(this.date.value);
+      this.demande.date_finAbonnement = this.formatDate(dateFin);
+      this.demande.status = Status.VALIDE;
+      console.log(this.demande);
+      let demande = this.demande;
       this.canalService.majDemande(demande).subscribe((response)=>{
         console.log("reuissi");
         console.log(response);
