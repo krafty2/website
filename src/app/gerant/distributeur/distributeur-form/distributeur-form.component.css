@@ -1,5 +1,5 @@
 section {
-  padding: 24px;
+  /* padding: 24px; */
 }
 
 .example-form {
@@ -21,4 +21,9 @@ section {
 .btn-submit {
   background: #0267c1 !important;
   color: #ffffff !important;
+}
+
+mat-slide-toggle {
+  margin: 8px 0;
+  display: block;
 }

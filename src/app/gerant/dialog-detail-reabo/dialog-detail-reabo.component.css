@@ -28,3 +28,13 @@ p{
     border: none;
     margin-block: 2px;
 }
+
+@media only screen and (max-width: 730px){
+    section {
+       width: 100vw;
+    }
+
+    .grid-info{
+        grid-template-columns: 1fr;
+    }
+}

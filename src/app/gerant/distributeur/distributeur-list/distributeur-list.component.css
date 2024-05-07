@@ -19,3 +19,9 @@ section{
     color: #2626268c;
     margin: 0;
 }
+
+@media only screen and (max-width: 730px){
+    section {
+        overflow-x: scroll;
+    }
+}

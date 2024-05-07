@@ -18,7 +18,7 @@
   <table mat-table [dataSource]="dataSource">
     <!-- Name Column -->
     <ng-container matColumnDef="nom">
-      <th mat-header-cell *matHeaderCellDef>Nom</th>
+      <th mat-header-cell *matHeaderCellDef>Nom et prénom</th>
       <td mat-cell *matCellDef="let element">
         <div style="display: flex; align-items: center">
           <button
@@ -37,12 +37,6 @@
           {{ element.nom }} {{ element.prenom }}
         </div>
       </td>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="prenom">
-      <th mat-header-cell *matHeaderCellDef>Prenom</th>
-      <td mat-cell *matCellDef="let element">{{ element.prenom }}</td>
     </ng-container>
 
     <!-- Symbol Column -->

@@ -44,7 +44,6 @@ export class ReabonnementAttenteComponent {
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;
       this.nbr=data.length;
-      console.log(data);
     });
   }
 

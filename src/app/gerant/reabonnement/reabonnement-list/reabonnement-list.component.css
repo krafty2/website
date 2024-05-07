@@ -14,3 +14,9 @@ table {
   padding: 24px;
   margin-block-end: 24px;
 }
+
+@media only screen and (max-width: 730px){
+  section {
+      overflow-x: scroll;
+  }
+}

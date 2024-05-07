@@ -20,6 +20,8 @@ export class CanalPlusServiceService {
   private saveOffre: string = this.baseUrl + '/offre/save_offre';
   private listOffre: string = this.baseUrl + '/offre/list_offre';
   private deleteOffre: string = this.baseUrl + '/offre/delete_offre/';
+  private recruDistribEnAttente = this.baseUrl + '/demande/demande_distrib_en_attente_recru';
+  private reaboDistribEnAttente =this.baseUrl + '/demande/demande_distrib_en_attente' ;
 
   //demande url
   private saveDemande: string = this.baseUrl + '/demande/save_demande';
@@ -81,6 +83,13 @@ export class CanalPlusServiceService {
 
   listDistribReabo(typeDemande: string): Observable<any> {
     return this.http.get<any>(`${this.listDistribDemande}/${typeDemande}`);
+  }
+
+  listDistribReaboAttente():Observable<any>{
+    return this.http.get<any>(`${this.reaboDistribEnAttente}`);
+  }
+  listDistribRecruAttente():Observable<any>{
+    return this.http.get<any>(`${this.recruDistribEnAttente}`);
   }
 
   //Gerant api

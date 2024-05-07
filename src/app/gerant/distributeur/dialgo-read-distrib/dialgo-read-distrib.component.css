@@ -30,3 +30,9 @@ section{
     background: #fff;
     padding: 14px;
 }
+
+@media only screen and (max-width: 730px){
+    section {
+       width: 100vw;
+    }
+}

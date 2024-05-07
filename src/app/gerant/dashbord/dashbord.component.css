@@ -133,3 +133,9 @@ h1{
     margin-left: 20px; */
     z-index: 0;
 }
+
+@media only screen and (max-width: 1024px){
+    .notification{
+        grid-template-columns: 1fr;
+    }
+}

@@ -24,7 +24,7 @@ import { DialgoReadDistribComponent } from '../dialgo-read-distrib/dialgo-read-d
   styleUrl: './distributeur-list.component.css',
 })
 export class DistributeurListComponent {
-  displayedColumns: string[] = ['nom', 'prenom', 'telephone', 'localite','username'];
+  displayedColumns: string[] = ['nom', 'telephone', 'localite','username'];
   dataSource: any;
 
   affiche: boolean = false;
