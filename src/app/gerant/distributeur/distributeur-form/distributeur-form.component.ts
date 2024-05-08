@@ -13,9 +13,11 @@ import { AuthService } from '../../../_service/auth.service';
 import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
 import { max } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AccountStatus, Status } from '../../../_models/demande';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-distributeur-form',
@@ -27,6 +29,8 @@ import { AccountStatus, Status } from '../../../_models/demande';
     MatFormFieldModule,
     MatIconModule,
     MatSlideToggleModule,
+    MatProgressSpinnerModule,
+    CommonModule,
   ],
   templateUrl: './distributeur-form.component.html',
   styleUrl: './distributeur-form.component.css',
@@ -37,6 +41,10 @@ export class DistributeurFormComponent {
   hide: boolean = true;
 
   isChecked = new FormControl(true);
+
+  loadingSubmit: boolean = true;
+
+  distribAction: boolean = false;
 
   @Input() distributeur!: any;
 
@@ -64,6 +72,7 @@ export class DistributeurFormComponent {
     this.distributeur.accountStatus == AccountStatus.ACTIVATED
       ? this.isChecked.setValue(true)
       : this.isChecked.setValue(false);
+
     if (this.distributeur) {
       this.distributeurForm = this.fb.group({
         nom: [this.distributeur.nom, [Validators.required]],
@@ -88,12 +97,19 @@ export class DistributeurFormComponent {
   handleSubmit() {
     console.log(this.distributeurForm.value);
     if (!this.distributeur) {
-      this.canalService
-        .createDistrib(this.distributeurForm.value)
-        .subscribe((data) => {
-          console.log('reussi');
-          window.location.reload();
-        });
+      this.distribAction = true;
+      this.canalService.createDistrib(this.distributeurForm.value).subscribe({
+        next: (data) => {
+          console.log(data);
+          if (!!data) {
+            this.distribAction = false;
+            window.location.reload();
+          }
+        },
+        error: () => {
+          this.distribAction = false;
+        },
+      });
     } else {
       this.distributeur.nom = this.distributeurForm.value.nom;
       this.distributeur.prenom = this.distributeurForm.value.prenom;
@@ -115,15 +131,18 @@ export class DistributeurFormComponent {
         this.distributeur.password = this.distributeurForm.value.password;
       }
 
-      //this.distributeur.password = this.distributeurForm.value.password;
-
-      if (this.distributeurForm.value.password) {
-        console.log(true);
-      }
-
-      this.canalService.updateDistribS(this.distributeur).subscribe((data) => {
-        console.log('Update Successful');
-        window.location.reload();
+      this.distribAction = true;
+      this.canalService.updateDistribS(this.distributeur).subscribe({
+        next: (data) => {
+          console.log(!!data);
+          if (data) {
+            this.distribAction = false;
+            window.location.reload();
+          }
+        },
+        error: () => {
+          this.distribAction = false;
+        },
       });
     }
   }

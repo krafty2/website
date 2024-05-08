@@ -7,7 +7,7 @@ import { delay, Observable, of, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  public host: string = 'http://localhost:8080/public/';
+  public host: string = 'http://localhost:8081/public/';
 
   public auth: string = this.host+ 'token';
 

@@ -14,6 +14,7 @@ import { CanalPlusServiceService } from '../../_service/canal-plus-service.servi
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreateOffreComponent } from '../Offre/dialog-create-offre/dialog-create-offre.component';
 import { CommonModule } from '@angular/common';
+import { forkJoin } from 'rxjs';
 
 
 
@@ -40,6 +41,11 @@ export class DashbordComponent {
 
   listOffre:any;
 
+  nbrDistrib!:number;
+  nbrClients!:number;
+
+  ca!:any;
+
   constructor(private canalService: CanalPlusServiceService,public dialog: MatDialog) {
    
   }
@@ -47,6 +53,18 @@ export class DashbordComponent {
   ngOnInit(){
     this.canalService.listesOffre().subscribe((data)=>{
       this.listOffre = data;
+    });
+
+    this.canalService.listeDistrib().subscribe((data)=>{
+      this.nbrDistrib = data.length;
+    });
+
+    this.canalService.clients().subscribe((data)=>{
+      this.nbrClients = data.length;
+    });
+
+    this.canalService.chiffreAffaireGerant().subscribe((data)=>{
+      this.ca = data;
     })
   }
 

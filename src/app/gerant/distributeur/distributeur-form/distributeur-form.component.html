@@ -2,7 +2,7 @@
   <form [formGroup]="distributeurForm" (ngSubmit)="handleSubmit()">
     
     <div class="form-grid">
-      <mat-slide-toggle [formControl]="isChecked"> {{isChecked.value?"Desactivé le compte":"Activé le compte"}}</mat-slide-toggle>
+      <mat-slide-toggle [formControl]="isChecked"> {{isChecked.value ? "Desactivé le compte" : "Activé le compte"}}</mat-slide-toggle>
       
       <mat-form-field class="example-full-width">
         <mat-label>Nom</mat-label>
@@ -38,7 +38,7 @@
       <mat-form-field>
         <mat-label>Mot de passe</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
@@ -58,7 +58,10 @@
       </mat-form-field> -->
     </div>
     <div class="form-grid">
-      <button class="btn-submit" [disabled]="!distributeurForm.valid" mat-raised-button type="submit">Enregistrer</button>
+      <button class="btn-submit" [disabled]="!distributeurForm.valid" mat-raised-button type="submit">
+        <ng-container *ngIf="!distribAction">Enregistrer</ng-container>
+        <mat-spinner [diameter]="24" *ngIf="distribAction"></mat-spinner>
+      </button>
       
     </div>
   </form>

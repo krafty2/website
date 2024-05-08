@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import {
   FormBuilder,
+  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
@@ -12,6 +13,7 @@ import {
 import { AuthService } from '../../_service/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -22,6 +24,7 @@ import { Observable } from 'rxjs';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
@@ -31,6 +34,7 @@ export class LoginComponent {
 
   idToken : any;
   errorMessage :any;
+  afficheErrorMsg!:any;
 
   role:any;
 
@@ -44,9 +48,17 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      nom: ['', Validators.required],
+      nom: new FormControl('',[Validators.required]),
       password: ['', Validators.required],
     });
+  }
+
+  get nom (){
+    return this.loginForm.get('nom');
+  }
+
+  get password(){
+    return this.loginForm.get('password');
   }
 
   handleSubmit() {
@@ -64,6 +76,9 @@ export class LoginComponent {
         },
         error :err => {
           this.errorMessage = err.error.errorMessage;
+         
+          this.afficheErrorMsg = 'Entrez un identifiant ou un mot de passe valide';
+          console.log(err);
         }
       });
   }

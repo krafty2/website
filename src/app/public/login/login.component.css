@@ -8,6 +8,12 @@ section {
     background-size: cover;
 }
 
+h1{
+    font-size: clamp(1rem,3vw,1.6rem);
+    font-weight: 300;
+    text-align: center;
+}
+
 .register-container {
     position: absolute;
     top: 50%;
@@ -36,6 +42,17 @@ section {
     /* display: flex;
     justify-content: center;
     align-items: center; */
+}
+
+.custom-pics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: 45px;
+}
+
+.custom-pics img{
+    width: 46px;
 }
 
 .custom-text div {

@@ -7,7 +7,7 @@ import { Offre } from '../_models/offre';
   providedIn: 'root',
 })
 export class CanalPlusServiceService {
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://localhost:8081';
 
   //distrib url
   private saveDistrib: string = this.baseUrl + '/distrib/save_distributeur';
@@ -16,12 +16,16 @@ export class CanalPlusServiceService {
   private listDistribDemande: string =
     this.baseUrl + '/distrib/distrib_demande';
 
+  private commis = this.baseUrl + '/distrib/commission';
+
   //offre url
   private saveOffre: string = this.baseUrl + '/offre/save_offre';
   private listOffre: string = this.baseUrl + '/offre/list_offre';
   private deleteOffre: string = this.baseUrl + '/offre/delete_offre/';
-  private recruDistribEnAttente = this.baseUrl + '/demande/demande_distrib_en_attente_recru';
-  private reaboDistribEnAttente =this.baseUrl + '/demande/demande_distrib_en_attente' ;
+  private recruDistribEnAttente =
+    this.baseUrl + '/demande/demande_distrib_en_attente_recru';
+  private reaboDistribEnAttente =
+    this.baseUrl + '/demande/demande_distrib_en_attente';
 
   //demande url
   private saveDemande: string = this.baseUrl + '/demande/save_demande';
@@ -32,12 +36,22 @@ export class CanalPlusServiceService {
   private recrutementListe = this.baseUrl + '/demande/recrutement';
   private reabonnementListe = this.baseUrl + '/demande/reabonnement';
   private upDemande: string = this.baseUrl + '/demande/update_demande';
+  private ca = this.baseUrl + '/gerant/ca';
 
   //
   private recruEnAttente = this.baseUrl + '/demande/recru_en_attente';
   private reaboEnAttente = this.baseUrl + '/demande/reabo_en_attente';
 
+  //client
+  private allClients = this.baseUrl + '/client/all_clients';
+
   constructor(private http: HttpClient) {}
+
+  //client
+
+  clients(): Observable<any> {
+    return this.http.get<any>(`${this.allClients}`);
+  }
 
   //Distributeur
 
@@ -51,6 +65,10 @@ export class CanalPlusServiceService {
 
   listeDistrib(): Observable<any> {
     return this.http.get<any>(`${this.allDistrib}`);
+  }
+
+  commission():Observable<any>{
+    return this.http.get<any>(`${this.commis}`);
   }
 
   //Offre
@@ -85,10 +103,10 @@ export class CanalPlusServiceService {
     return this.http.get<any>(`${this.listDistribDemande}/${typeDemande}`);
   }
 
-  listDistribReaboAttente():Observable<any>{
+  listDistribReaboAttente(): Observable<any> {
     return this.http.get<any>(`${this.reaboDistribEnAttente}`);
   }
-  listDistribRecruAttente():Observable<any>{
+  listDistribRecruAttente(): Observable<any> {
     return this.http.get<any>(`${this.recruDistribEnAttente}`);
   }
 
@@ -107,5 +125,9 @@ export class CanalPlusServiceService {
 
   listeReaboEnttente(): Observable<any> {
     return this.http.get<any>(`${this.reaboEnAttente}`);
+  }
+
+  chiffreAffaireGerant(): Observable<any> {
+    return this.http.get<any>(`${this.ca}`);
   }
 }

@@ -19,11 +19,12 @@ section {
 }
 
 .btn-submit {
-  background: #0267c1 !important;
-  color: #ffffff !important;
+  background: #0267c1;
+  color: #ffffff;
 }
 
 mat-slide-toggle {
   margin: 8px 0;
   display: block;
 }
+
