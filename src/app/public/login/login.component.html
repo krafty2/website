@@ -10,7 +10,11 @@
     >
       <h1>Se connecter</h1>
 
-      <ng-container *ngIf="!!afficheErrorMsg">{{afficheErrorMsg}}</ng-container>
+      <ng-container *ngIf="!!afficheErrorMsg">
+        <div class="custom-alert mdp-id-incorrect">
+          {{ afficheErrorMsg }}
+        </div>
+      </ng-container>
 
       <div class="form-grid">
         <div>
@@ -18,25 +22,50 @@
             <mat-label>Identifiant</mat-label>
             <input formControlName="nom" matInput placeholder="Ex. L100100" />
           </mat-form-field>
-          <div *ngIf="!!nom?.invalid && (!!nom?.dirty || !!nom?.touched)" class="custom-alert">
-            <div *ngIf="!!nom?.errors?.['required']">Un identifiant est requis.</div>
-            
+          <div
+            *ngIf="!!nom?.invalid && (!!nom?.dirty || !!nom?.touched)"
+            class="custom-alert"
+          >
+            <div *ngIf="!!nom?.errors?.['required']">
+              Un identifiant est requis.
+            </div>
           </div>
         </div>
 
         <div>
           <mat-form-field class="example-full-width">
             <mat-label>Mot de passe</mat-label>
-            <input matInput formControlName="password" />
+            <input
+              [type]="hide ? 'password' : 'text'"
+              matInput
+              formControlName="password"
+            />
+            <button
+              type="button"
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
           </mat-form-field>
-          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="custom-alert">
-            <div *ngIf="password?.errors?.['required']">Un mot de passe est requis.</div>
+          <div
+            *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+            class="custom-alert"
+          >
+            <div *ngIf="password?.errors?.['required']">
+              Un mot de passe est requis.
+            </div>
           </div>
         </div>
       </div>
 
       <div class="form-grid">
-        <button mat-raised-button type="submit">Se connecter</button>
+        <button class="btn-submit" mat-raised-button type="submit">
+          Se connecter
+        </button>
       </div>
 
       <!-- <p style="text-align: center; margin-block-start: 12px">

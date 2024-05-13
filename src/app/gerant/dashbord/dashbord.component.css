@@ -19,7 +19,7 @@ section {
 
 .indicateur-container {
     display: flex;
-    gap: 14px;
+    justify-content: space-between;
 }
 
 h1{
@@ -32,7 +32,7 @@ h1{
     justify-content: center;
     flex-direction: column;
     gap: 4px;
-    background: #c1c1c13a;
+    background: #fff;
     color: var(--text-color-02);
     width: fit-content;
     padding: 8px;
@@ -60,12 +60,10 @@ h1{
     margin-block: 24px;
 }
 
-.notification>div {
-    /* border: 1px solid #c1c1c1; */
-}
 
 .info-demande-attente{
     /* background: #fff; */
+    margin-block-end: 12px;
 }
 
 .offre-head{
@@ -87,13 +85,16 @@ h1{
 
 .grid-table{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: 1fr 1fr 0.5fr;
+    color: #262626;
 }
 
 .grid-table p{
-    border-bottom: 1px solid #c1c1c1;
+    background: #c1c1c11e;
+    /* border-bottom: 1px solid #c1c1c1; */
     padding: 8px;
-    margin: 0;
+    margin-block: 4px;
+
 }
 
 .grid-table.head p:nth-child(1){

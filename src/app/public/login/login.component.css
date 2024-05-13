@@ -89,9 +89,12 @@ h1{
     /* gap: 22px; */
 }
 
-button {
-    background: #251d56 !important;
-    color: #ffffff !important;
+.mdp-id-incorrect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background: #c1121e17;
 }
 
 @media only screen and (min-width: 1600px) {

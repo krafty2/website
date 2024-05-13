@@ -5,25 +5,25 @@
     <button mat-raised-button (click)="openDialogOffre()">Ajouter Offre</button>
   </div> -->
   <div class="notification">
-    <div>
+    <div >
       <div
         class="indicateur-container"
-        style="margin-block: 8px; background: #fff; padding: 6px"
+        style="margin-block-end: 12px; padding: 6px"
       >
-        <div class="indice">
+        <div class="indice mat-elevation-z2">
           <p>Distributeurs</p>
           <p>{{nbrDistrib}}</p>
         </div>
-        <div class="indice">
+        <div class="indice mat-elevation-z2">
           <p>Clients</p>
           <p>{{nbrClients}}</p>
         </div>
-        <div class="indice">
+        <div class="indice mat-elevation-z2">
           <p>Chiffre d'affaire globale</p>
           <p>{{ca}} CFA</p>
         </div>
       </div>
-      <div style="margin-block: 8px; background: #fff; padding: 6px">
+      <div class="mat-elevation-z2" style="margin-block: 8px; background: #fff; padding: 6px">
         <div class="offre-head">
           <h3>Offres</h3>
 
@@ -36,7 +36,7 @@
           </button>
         </div>
 
-        <div>
+        <div >
           <div class="grid-table head">
             <p>Offre</p>
             <p>Montant</p>
@@ -63,7 +63,7 @@
     </div>
 
     <div>
-      <div class="info-demande-attente">
+      <div class="info-demande-attente ">
         <app-reabonnement-attente />
       </div>
       <div class="info-demande-attente">
