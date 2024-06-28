@@ -59,9 +59,20 @@
         </mat-form-field>
       </div>
     </div>
+    <div style="text-align: center; margin-block-end: 12px;color:red;">
+      <small
+      >Les champs * doivent etre tous remplis</small
+    >
+    </div>
 
     <div class="form-grid">
-      <button mat-raised-button type="submit">Enregistrer</button>
+      <button
+        mat-raised-button
+        type="submit"
+        [disabled]="!installationForm.valid"
+      >
+        Enregistrer
+      </button>
     </div>
   </form>
 </section>

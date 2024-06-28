@@ -1,11 +1,11 @@
 <section class="mat-elevation-z2">
     <h3>Recrutement Avec Parabole</h3>
-  
+
     <form [formGroup]="installationForm" (ngSubmit)="handleSubmit()">
       <div class="form-grid">
         <mat-form-field class="example-full-width">
           <mat-label>Bouquet</mat-label>
-  
+
           <mat-select formControlName="bouquet">
             <mat-option
               *ngFor="let offre of listeOffres$"
@@ -14,7 +14,7 @@
             >
           </mat-select>
         </mat-form-field>
-  
+
         <div formGroupName="demande">
           <mat-form-field class="example-full-width">
             <mat-label>Duree Abonnement</mat-label>
@@ -27,7 +27,7 @@
           </mat-form-field>
         </div>
       </div>
-  
+
       <div formGroupName="client">
         <div class="form-grid">
           <mat-form-field class="example-full-width">
@@ -39,7 +39,7 @@
             <input matInput formControlName="prenom" placeholder="Ex. Pierre" />
           </mat-form-field>
         </div>
-  
+
         <div class="form-grid">
           <mat-form-field class="example-full-width">
             <mat-label>Telephone</mat-label>
@@ -59,10 +59,14 @@
           </mat-form-field>
         </div>
       </div>
-  
+
+      <div style="text-align: center; margin-block-end: 12px;color:red;">
+        <small
+        >Les champs * doivent etre tous remplis</small
+      >
+      </div>
       <div class="form-grid">
-        <button mat-raised-button type="submit">Enregistrer</button>
+        <button mat-raised-button type="submit" [disabled]="!installationForm.valid">Enregistrer</button>
       </div>
     </form>
   </section>
-  

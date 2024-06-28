@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -35,7 +35,7 @@ export class DemandeInstallationFormComponent {
   montantTotal$!: number;
 
   parabole:boolean=false;
-  
+
   constructor(
     private fb: FormBuilder,
     private distribService: CanalPlusServiceService,
@@ -50,9 +50,9 @@ export class DemandeInstallationFormComponent {
     });
 
     this.installationForm = this.fb.group({
-      bouquet: [''],
+      bouquet: ['',Validators.required],
       client: this.fb.group({
-        decodeur: [''],
+        decodeur: ['',Validators.required],
         date_demande: [this.formatDate(this.dateJ)],
         nom: [''],
         prenom: [''],
@@ -62,7 +62,7 @@ export class DemandeInstallationFormComponent {
         typeDemande: ['recrutement'],
         date_demande: [this.formatDate(this.dateJ)],
         commission: ['1500'],
-        duree_abonnement: [''],
+        duree_abonnement: ['',Validators.required],
         status: [Status.EN_ATTENTE],
         parabole:[this.parabole],
         montantDemande:['']
@@ -89,8 +89,13 @@ export class DemandeInstallationFormComponent {
       (element) => element.bouquet == this.installationForm.value.bouquet
     );
 
+    //5000 decodeur pour toute les offres sauf access hors promo
+    //avec access 25000 hors promo
+    //mettre la possibilite de prendre en compte le prix de decodeur
+    //il n'y a que le prix du decodeur qui varie en fonction de la promo
+    //prendre en compte le sav au niveau du distributeur
     if (bouquetChoisi) {
-      this.montantTotal$ = dureeReabo * bouquetChoisi?.montant;
+      this.montantTotal$ = dureeReabo * bouquetChoisi?.montant + 5000;
       this.installationForm.value.demande.montantDemande = this.montantTotal$;
     }
 

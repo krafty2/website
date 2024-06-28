@@ -4,20 +4,25 @@
     max-width: 500px;
     width: 100%;
   }
-  
+
   .example-full-width {
     width: 100%;
   }
-  
+
   .form-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 22px;
   }
-  
+
   button {
     background: #0267c1 !important;
     color: #ffffff !important;
+  }
+
+  button:disabled {
+    background: #c1c1c186 !important;
+    color: #262626;
   }
 
   @media only screen and (max-width: 730px) {
