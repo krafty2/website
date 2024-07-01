@@ -35,7 +35,7 @@ export class InstallationAttenteComponent {
   dataSource:any;
 
   nbr!:number;
-  
+
   constructor(private canalService: CanalPlusServiceService,public dialog: MatDialog) {}
 
   ngOnInit() {
@@ -43,11 +43,11 @@ export class InstallationAttenteComponent {
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;
       this.nbr= data.length;
-      console.log(data);
+      // console.log(data);
     });
   }
 
-  
+
   openDialogValidation(demande:any){
     let vue = false;
     const dialogRef = this.dialog.open(DialogDetailReaboComponent, {
@@ -55,9 +55,9 @@ export class InstallationAttenteComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
 
-      console.log(result);
+      // console.log(result);
     });
   }
 }

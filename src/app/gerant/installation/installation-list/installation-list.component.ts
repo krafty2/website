@@ -44,7 +44,7 @@ export class InstallationListComponent {
 
   ngOnInit() {
     this.canalService.listRecrutement().subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;
     });
@@ -57,9 +57,9 @@ export class InstallationListComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
 
-      console.log(result);
+      // console.log(result);
     });
   }
 }

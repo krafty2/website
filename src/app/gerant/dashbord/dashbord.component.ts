@@ -47,7 +47,7 @@ export class DashbordComponent {
   ca!:any;
 
   constructor(private canalService: CanalPlusServiceService,public dialog: MatDialog) {
-   
+
   }
 
   ngOnInit(){
@@ -71,9 +71,9 @@ export class DashbordComponent {
   openDialogOffre(){
     const dialogRef = this.dialog.open(DialogCreateOffreComponent, {});
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
 
-      console.log(result);
+      // console.log(result);
     });
   }
 

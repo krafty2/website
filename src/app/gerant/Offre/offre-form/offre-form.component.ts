@@ -34,8 +34,13 @@ export class OffreFormComponent {
 
   handleSubmit() {
     console.log(this.offreForm.value);
-    this.canalService.createOffre(this.offreForm.value).subscribe(()=>{
-      console.log('reussi');
+    this.canalService.createOffre(this.offreForm.value).subscribe({
+      next:()=>{
+        window.location.reload();
+      },
+      error:()=>{
+        console.log('error')
+      }
     })
   }
 }

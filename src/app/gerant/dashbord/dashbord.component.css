@@ -80,7 +80,7 @@ h1{
 
 .btn-add-offre{
     background: #c1c1c125;
-   
+
 }
 
 .grid-table{
@@ -118,7 +118,7 @@ h1{
 .offre p{
     display: flex;
     align-items: center;
-    
+
     padding-block: 0;
     font-size: 14px;
     color: var(--text-color-02);
@@ -139,4 +139,18 @@ h1{
     .notification{
         grid-template-columns: 1fr;
     }
+}
+
+@media only screen and (max-width: 472px) {
+
+  .indicateur-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.indice{
+  width: 100%;
+}
 }

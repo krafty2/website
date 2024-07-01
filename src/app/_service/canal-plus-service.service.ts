@@ -7,7 +7,7 @@ import { Offre } from '../_models/offre';
   providedIn: 'root',
 })
 export class CanalPlusServiceService {
-  private baseUrl = 'http://localhost:8081';
+  private baseUrl = 'https://mne-backend.hisiastudio.com';
 
   //distrib url
   private saveDistrib: string = this.baseUrl + '/distrib/save_distributeur';

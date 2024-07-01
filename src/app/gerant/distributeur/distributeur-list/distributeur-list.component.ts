@@ -40,7 +40,7 @@ export class DistributeurListComponent {
 
   ngAfterViewInit() {
     this.canalService.listeDistrib().subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.nbr = data.length;
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;
@@ -50,9 +50,9 @@ export class DistributeurListComponent {
   openDialogCreateDistrib() {
     const dialogRef = this.dialog.open(DialogCreateDistribComponent, {});
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
 
-      console.log(result);
+      // console.log(result);
     });
   }
 
@@ -63,9 +63,9 @@ export class DistributeurListComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
 
-      console.log(result);
+      // console.log(result);
     });
   }
 }

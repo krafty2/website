@@ -23,7 +23,7 @@ export class ListOffreComponent {
 
   ngOnInit() {
     this.canalService.listesOffre().subscribe((data: Offre[]) => {
-      console.log(data);
+      // console.log(data);
       this.dataSource = new MatTableDataSource<Offre>(data);
       this.dataSource.paginator = this.paginator;
     });
@@ -31,7 +31,7 @@ export class ListOffreComponent {
 
   deleteOffre(id:number) {
     this.canalService.deleteOffres(id).subscribe(()=>{
-      console.log('deleteOffre');
+      // console.log('deleteOffre');
       window.location.reload();
     })
   }

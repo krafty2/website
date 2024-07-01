@@ -1,9 +1,9 @@
 <section class="mat-elevation-z2">
   <form [formGroup]="distributeurForm" (ngSubmit)="handleSubmit()">
-    
+
     <div class="form-grid">
       <mat-slide-toggle [formControl]="isChecked"> {{isChecked.value ? "Desactivé le compte" : "Activé le compte"}}</mat-slide-toggle>
-      
+
       <mat-form-field class="example-full-width">
         <mat-label>Nom</mat-label>
         <input matInput formControlName="nom" placeholder="Ex. Traore" />
@@ -43,11 +43,11 @@
         </button>
       </mat-form-field>
     </div>
-   
-    <div>
-      
 
-      
+    <div>
+
+
+
 
       <!-- <mat-form-field>
         <mat-label>Confirme Mot de passe</mat-label>
@@ -62,8 +62,7 @@
         <ng-container *ngIf="!distribAction">Enregistrer</ng-container>
         <mat-spinner [diameter]="24" *ngIf="distribAction"></mat-spinner>
       </button>
-      
+
     </div>
   </form>
-  {{this.distributeurForm.value.password}}
 </section>

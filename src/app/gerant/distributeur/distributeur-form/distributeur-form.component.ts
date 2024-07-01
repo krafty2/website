@@ -51,7 +51,7 @@ export class DistributeurFormComponent {
   constructor(
     private fb: FormBuilder,
     private canalService: CanalPlusServiceService
-  ) {}
+  ) { }
 
   ngOnInit() {
     console.log(this.distributeur);
@@ -95,12 +95,12 @@ export class DistributeurFormComponent {
   }
 
   handleSubmit() {
-    console.log(this.distributeurForm.value);
+    // console.log(this.distributeurForm.value);
     if (!this.distributeur) {
       this.distribAction = true;
       this.canalService.createDistrib(this.distributeurForm.value).subscribe({
         next: (data) => {
-          console.log(data);
+          // console.log(data);
           if (!!data) {
             this.distribAction = false;
             window.location.reload();
@@ -134,7 +134,7 @@ export class DistributeurFormComponent {
       this.distribAction = true;
       this.canalService.updateDistribS(this.distributeur).subscribe({
         next: (data) => {
-          console.log(!!data);
+          // console.log(!!data);
           if (data) {
             this.distribAction = false;
             window.location.reload();

@@ -51,7 +51,7 @@ export class DialogDetailReaboComponent {
   ) {}
 
   ngOnInit() {
-    console.log(this.data[0])
+    // console.log(this.data[0])
     // this.data.date_debutAbonnement = '2020-22-2';
     this.date.setValue(new Date());
     this.demande = this.data[0];
@@ -71,22 +71,22 @@ export class DialogDetailReaboComponent {
   }
 
   handleSubmit() {
-    console.log(this.date.value?.getDate());
+    // console.log(this.date.value?.getDate());
 
     let mois = this.date.value?.getMonth();
     let day = this.date.value?.getDate();
     let year = this.date.value?.getFullYear();
     if (year && mois && day) {
       let dateFin = new Date(year, mois + this.demande.duree_abonnement, day);
-      console.log(dateFin);
+      // console.log(dateFin);
       this.demande.date_debutAbonnement = this.formatDate(this.date.value);
       this.demande.date_finAbonnement = this.formatDate(dateFin);
       this.demande.status = Status.VALIDE;
-      console.log(this.demande);
+      // console.log(this.demande);
       let demande = this.demande;
       this.canalService.majDemande(demande).subscribe((response)=>{
-        console.log("reuissi");
-        console.log(response);
+        // console.log("reuissi");
+        // console.log(response);
         if(response){
           window.location.reload();
         }

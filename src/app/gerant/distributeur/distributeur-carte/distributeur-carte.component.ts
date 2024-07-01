@@ -15,7 +15,7 @@ export class DistributeurCarteComponent {
   listeDistrib$: any = [];
 
   constructor(private canalService: CanalPlusServiceService) {
-   
+
   }
 
   ngAfterViewInit() {
@@ -73,7 +73,7 @@ export class DistributeurCarteComponent {
       });
 
       data.forEach((element: any) => {
-        console.log(element.latitude);
+        // console.log(element.latitude);
 
         this.mark = L.marker([element.longitude, element.latitude], {
           icon: iconMesure,

@@ -36,7 +36,7 @@ export class ReabonnementAttenteComponent {
   dataSource:any;
 
   nbr!:number;
-  
+
   constructor(private canalService: CanalPlusServiceService,public dialog: MatDialog) {}
 
   ngOnInit() {
@@ -54,9 +54,9 @@ export class ReabonnementAttenteComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
 
-      console.log(result);
+      // console.log(result);
     });
   }
 }

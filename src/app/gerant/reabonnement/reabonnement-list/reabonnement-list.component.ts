@@ -45,7 +45,7 @@ export class ReabonnementListComponent {
 
   ngOnInit() {
     this.canalService.listeReabonnement().subscribe((data) => {
-      
+
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;
     });
@@ -58,9 +58,9 @@ export class ReabonnementListComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
 
-      console.log(result);
+      // console.log(result);
     });
   }
 }

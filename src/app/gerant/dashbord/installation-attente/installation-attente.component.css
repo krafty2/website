@@ -1,5 +1,6 @@
 .content-demande {
     padding: 4px;
+    background: #fff !important;
 }
 
 .demande-customer-head {
@@ -21,5 +22,6 @@
 @media only screen and (max-width: 730px){
     .content-demande {
         overflow-x: scroll;
+        background: #ffff !important;
     }
 }
