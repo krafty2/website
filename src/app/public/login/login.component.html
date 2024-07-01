@@ -1,14 +1,18 @@
 <section>
-  <div class="register-container mat-elevation-z4">
+  <div class="test">
+    <div class="register-container mat-elevation-z4">
     <div class="custom-pics">
-      <img src="/assets/img/IMG-20240416-WA0006.jpg" alt="" />
+      <div class="pics-contain">
+        <img src="/assets/img/IMG-20240416-WA0006.jpg" alt="" />
+      </div>
+
     </div>
     <form
       style="padding: 17px; width: 100%"
       [formGroup]="loginForm"
       (ngSubmit)="handleSubmit()"
     >
-      <h1>Se connecter</h1>
+      <h1 style="color: #fff; font-weight: 500;letter-spacing: 1px;">Se connecter</h1>
 
       <ng-container *ngIf="!!afficheErrorMsg">
         <div class="custom-alert mdp-id-incorrect">
@@ -74,4 +78,6 @@
       </p> -->
     </form>
   </div>
+  </div>
+
 </section>
