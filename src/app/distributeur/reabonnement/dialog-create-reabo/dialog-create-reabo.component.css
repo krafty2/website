@@ -1,9 +1,12 @@
 section{
     padding: 42px;
+    border: 1px solid #c1c1c1;
 }
 
 h1{
-    font-size: clamp(1rem,3vw,1.3rem);
+    font-size: clamp(1.3rem,3vw,1.5rem);
+    font-weight: 600;
+    color: #215caa;
 }
 
 .btn-dmd{
@@ -18,8 +21,11 @@ h1{
 }
 
 @media only screen and (max-width: 430px) {
+  section{
+    padding: 12px;
+  }
     .btn-annuler{
-        margin-inline-start: 14px;
-       
+        margin-inline-start: 44px;
+
     }
 }

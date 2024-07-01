@@ -85,7 +85,6 @@ export class RecrutementFormComponent {
   }
 
   handleSubmit() {
-
     let dureeReabo: number = this.installationForm.value.demande.duree_abonnement;
     let bouquetChoisi = this.listeOffres$.find(
       (element) => element.bouquet == this.installationForm.value.bouquet

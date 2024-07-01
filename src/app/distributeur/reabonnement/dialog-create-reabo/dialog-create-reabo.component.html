@@ -1,31 +1,35 @@
 <section>
-  <h1>Enregistrement d'une nouvelle demande</h1>
+  <h1>Nouvelle demande</h1>
   <p>Vous proceder a la validation finale du reabonnement</p>
 
-  <h1 style="color: red" *ngIf="montant$">
-    Avez-vous transferer la somme de : <strong>{{ montant$ }}</strong> CFA au
-    numero 67676767
-  </h1>
-
-  <p>
-    Si Oui Veuillez appuyer le bouton <strong>Enregistrer</strong> pour terminer
-    l'operation.
-  </p>
-  <p>
-    Si Non Veuillez proceder au versement de la somme ou appuyer sur le bouton
-    <strong>Annuler</strong>
+  <p style="color: red;word-break: normal;" *ngIf="montant$">
+    Avez-vous transferer la somme de : <strong>{{ montant$ }}</strong> CFA Au numero +226 05-86-68-65
   </p>
 
-  <div style="margin-block-start:42px;">
+  <p>Au numero +226 05-86-68-65</p>
+  <!-- <p>NB :</p>
+  <ul>
+    <li>
+      Si Oui Veuillez appuyer le bouton <strong>Enregistrer</strong> pour
+      terminer l'operation.
+    </li>
+    <li>
+      Si Non Veuillez proceder au versement de la somme ou appuyer sur le bouton
+      <strong>Annuler</strong>
+    </li>
+  </ul> -->
+
+  <div style="margin-block-start: 42px">
     <button
-    *ngIf="reabo$"
-    class="btn-dmd"
-    mat-raised-button
-    (click)="handleSubmit()"
-  >
-    Enregistrer
-  </button>
-  <button class="btn-annuler" (click)="onNoClick()" mat-raised-button>Annuler</button>
+      *ngIf="reabo$"
+      class="btn-dmd"
+      mat-raised-button
+      (click)="handleSubmit()"
+    >
+      OUI
+    </button>
+    <button class="btn-annuler" (click)="onNoClick()" mat-raised-button>
+      NON
+    </button>
   </div>
-  
 </section>
