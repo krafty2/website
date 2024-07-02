@@ -39,7 +39,7 @@
     </div>
 
     <div class="form-grid">
-      <button mat-raised-button type="submit">Enregistrer</button>
+      <button [disabled]="!reaboForm.valid" mat-raised-button type="submit">Enregistrer</button>
     </div>
   </form>
 </section>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -50,13 +50,13 @@ export class DemandeFormComponent {
     });
 
     this.reaboForm = this.fb.group({
-      bouquet: [''],
-      numero_decodeur: [''],
+      bouquet: ['',Validators.required],
+      numero_decodeur: ['',Validators.required],
       demande: this.fb.group({
         typeDemande: ['reabonnement'],
         date_demande: [this.formatDate(this.dateJ)],
         commission: [''],
-        duree_abonnement: [''],
+        duree_abonnement: ['',Validators.required],
         status: [Status.EN_ATTENTE],
         montantDemande:['']
       }),

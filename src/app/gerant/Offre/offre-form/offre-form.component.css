@@ -11,3 +11,8 @@ section {
     background: var(--background-color-01);
     color: #fff;
 }
+
+button:disabled {
+  background: #c1c1c186 !important;
+  color: #262626;
+}

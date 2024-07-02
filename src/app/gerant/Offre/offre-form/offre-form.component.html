@@ -25,7 +25,7 @@
       </mat-form-field>
     </div>
     <div>
-      <button class="btn-offre" mat-raised-button>Ajouter</button>
+      <button class="btn-offre" [disabled]="!offreForm.valid" mat-raised-button>Ajouter</button>
     </div>
   </form>
 </section>

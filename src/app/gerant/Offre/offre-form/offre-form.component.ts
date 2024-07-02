@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { of } from 'rxjs';
 import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
 import { Promo } from '../../../_models/offre';
@@ -26,8 +26,8 @@ export class OffreFormComponent {
 
   ngOnInit() {
     this.offreForm = this.fb.group({
-      bouquet: [''],
-      montant: [''],
+      bouquet: ['',Validators.required],
+      montant: ['',Validators.required],
       promo:[Promo.STANDARD]
     });
   }
