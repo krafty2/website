@@ -7,10 +7,12 @@ import { RecrutementListeComponent } from '../../installation-with-parabole/recr
 @Component({
   selector: 'app-gestion-installation-distrib',
   standalone: true,
-  imports: [DemandeInstallationFormComponent,InstallationListDistribComponent,RecrutementListeComponent],
+  imports: [
+    DemandeInstallationFormComponent,
+    InstallationListDistribComponent,
+    RecrutementListeComponent,
+  ],
   templateUrl: './gestion-installation-distrib.component.html',
-  styleUrl: './gestion-installation-distrib.component.css'
+  styleUrl: './gestion-installation-distrib.component.css',
 })
-export class GestionInstallationDistribComponent {
-
-}
+export class GestionInstallationDistribComponent {}

@@ -1,12 +1,34 @@
 <section>
-  <h1>Nouvelle demande</h1>
-  <p>Vous proceder a la validation finale du reabonnement</p>
+  <div style="border: 10px solid #ffd200;padding: 14px;background: #ffd200;">
+    <h1>Nouvelle demande</h1>
+    <p class="info-texte-01">
+      Vous proceder a la validation finale du reabonnement
+    </p>
 
-  <p style="color: red;word-break: normal;" *ngIf="montant$">
-    Avez-vous transferer la somme de : <strong>{{ montant$ }}</strong> CFA Au numero +226 05-86-68-65
-  </p>
+    <div style="display: flex;gap: 12px;align-items: center;">
+      <img class="pics-orange" src="/assets/img/6371597b91eed2b9a38e9c0fc8808f48_icon.png" alt="orange_money">
+    <p class="alert-texte mat-elevation-z2" *ngIf="montant$">
+      Avez-vous transférer la somme de : <strong>{{ montant$ }}</strong> CFA au
+      numero +226 05-86-68-65 ?
+    </p>
+    </div>
 
-  <p>Au numero +226 05-86-68-65</p>
+
+    <div style="margin-block-start: 42px">
+      <button
+        *ngIf="reabo$"
+        class="btn-dmd"
+        mat-raised-button
+        (click)="handleSubmit()"
+      >
+        OUI
+      </button>
+      <button class="btn-annuler" (click)="onNoClick()" mat-raised-button>
+        NON
+      </button>
+    </div>
+  </div>
+
   <!-- <p>NB :</p>
   <ul>
     <li>
@@ -19,17 +41,5 @@
     </li>
   </ul> -->
 
-  <div style="margin-block-start: 42px">
-    <button
-      *ngIf="reabo$"
-      class="btn-dmd"
-      mat-raised-button
-      (click)="handleSubmit()"
-    >
-      OUI
-    </button>
-    <button class="btn-annuler" (click)="onNoClick()" mat-raised-button>
-      NON
-    </button>
-  </div>
+
 </section>
