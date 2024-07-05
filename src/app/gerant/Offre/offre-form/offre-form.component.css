@@ -1,5 +1,6 @@
 section {
-    padding: 12px;
+    padding: 0px !important;
+    /* width: 40vw; */
 }
 
 .example-full-width {
@@ -15,4 +16,29 @@ section {
 button:disabled {
   background: #c1c1c186 !important;
   color: #262626;
+}
+
+.ang-uppercase{
+  text-transform: uppercase !important;
+}
+
+.ang-grid-02{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+}
+
+/***** */
+
+
+.error{
+  border-bottom: 1px solid red !important;
+}
+
+
+/**responsively */
+@media only screen and (max-width: 472px) {
+  .ang-grid-02{
+    grid-template-columns: 1fr;
+  }
 }

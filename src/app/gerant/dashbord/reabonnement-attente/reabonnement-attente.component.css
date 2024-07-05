@@ -1,6 +1,8 @@
 .content-reabo {
     padding: 4px;
     background: #ffff;
+    border-radius: 8px;
+    border: 1px solid #c1c1c1cb;
 }
 
 .reabo-customer-head {

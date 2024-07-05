@@ -3,8 +3,8 @@ section {
   width: 100%;
   height: 100vh;
   background: #f8f8f8;
-  background: linear-gradient(#2626261a, #eb6d6d2d),
-    url(/assets/img/pattern/pexels-goumbik-1422647.jpg) no-repeat;
+  background: linear-gradient(#2626261f, #2626261f),
+    url(/assets/img/pattern/pexels-jplenio-1103970.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   padding: 0 !important;
@@ -30,12 +30,12 @@ h1 {
 
 .register-container {
   position: absolute;
-border-radius: 4px;
+  border-radius: 4px;
   top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  background: #1717175d;
+  background: #2626268a;
   width: 35%;
   /* border-radius: 2%; */
   /* display: flex; */
@@ -67,13 +67,12 @@ border-radius: 4px;
   margin-block-start: 15px;
   margin-inline: 19px;
   padding-block: 14px;
-
 }
 
-.pics-contain{
+.pics-contain {
   background: #fff;
-padding: 15px;
-border-radius: 50%;
+  padding: 15px;
+  border-radius: 50%;
 }
 
 .pics-contain img {
@@ -117,7 +116,7 @@ border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px;
+  gap: 14px;
   background: #c1121e17;
 }
 

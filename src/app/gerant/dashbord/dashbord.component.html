@@ -1,29 +1,54 @@
 <section>
   <h1 class="dash">Dashbord</h1>
 
+  <div class="indicateur-container">
+    <div class="indice">
+      <div>
+        <img src="/assets/img/person-circle-fill-svgrepo-com.svg" alt="" />
+      </div>
+      <div>
+        <p>Distributeurs</p>
+        <p class="indice-value">{{ nbrDistrib }}</p>
+      </div>
+    </div>
+    <div class="indice">
+      <div>
+        <img src="/assets/img/client-profile-svgrepo-com.svg" alt="" />
+      </div>
+      <div>
+        <p>Clients</p>
+        <p class="indice-value">{{ nbrClients }}</p>
+      </div>
+    </div>
+    <div class="indice">
+      <div>
+        <img
+          src="/assets/img/money-turnover-bill-line-svgrepo-com.svg"
+          alt=""
+        />
+      </div>
+      <div>
+        <p>Chiffre d'affaire globale</p>
+        <p class="indice-value">{{ ca }} CFA</p>
+      </div>
+    </div>
+  </div>
+
   <!-- <div>
     <button mat-raised-button (click)="openDialogOffre()">Ajouter Offre</button>
   </div> -->
   <div class="notification">
-    <div >
-      <div
-        class="indicateur-container"
-        style="margin-block-end: 12px; padding: 6px"
-      >
-        <div class="indice mat-elevation-z2">
-          <p>Distributeurs</p>
-          <p>{{nbrDistrib}}</p>
-        </div>
-        <div class="indice mat-elevation-z2">
-          <p>Clients</p>
-          <p>{{nbrClients}}</p>
-        </div>
-        <div class="indice mat-elevation-z2">
-          <p>Chiffre d'affaire globale</p>
-          <p>{{ca}} CFA</p>
-        </div>
+    <div>
+      <div class="info-demande-attente">
+        <app-reabonnement-attente />
       </div>
-      <div class="mat-elevation-z2" style="margin-block: 8px; background: #fff; padding: 6px">
+      <div class="info-demande-attente">
+        <app-installation-attente />
+      </div>
+    </div>
+
+    <div >
+      <div class="mat-elevation-z2 ang-box" style="padding: 6px">
         <div class="offre-head">
           <h3>Offres</h3>
 
@@ -32,11 +57,11 @@
             mat-icon-button
             (click)="openDialogOffre()"
           >
-          <mat-icon>add</mat-icon>
+            <mat-icon>add</mat-icon>
           </button>
         </div>
 
-        <div >
+        <div>
           <div class="grid-table head">
             <p>Offre</p>
             <p>Montant</p>
@@ -47,13 +72,15 @@
               {{ offre.bouquet }}
             </p>
             <p>{{ offre.montant }} Francs CFA</p>
-            <p style="justify-content: end;padding-inline-end: 24px;"><button
-              class="btn-add-offre"
-              mat-icon-button
-              (click)="openDialogOffre()"
-            >
-            <mat-icon style=" font-size: 24px;">edit</mat-icon>
-            </button></p>
+            <p style="justify-content: end; padding-inline-end: 24px">
+              <button
+                class="btn-add-offre"
+                mat-icon-button
+                (click)="modifDialogOffre(offre)"
+              >
+                <mat-icon style="font-size: 24px">edit</mat-icon>
+              </button>
+            </p>
           </div>
           <!-- <p *ngFor="let offre of listOffre">
             {{offre.bouquet}} {{offre.montant}}
@@ -61,19 +88,10 @@
         </div>
       </div>
     </div>
-
-    <div>
-      <div class="info-demande-attente ">
-        <app-reabonnement-attente />
-      </div>
-      <div class="info-demande-attente">
-        <app-installation-attente />
-      </div>
-    </div>
   </div>
 
   <app-distributeur-carte />
   <!-- <div class="mat-elevation-z2" id="myMap">
-    
+
   </div> -->
 </section>

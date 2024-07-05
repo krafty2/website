@@ -7,7 +7,9 @@ import { catchError, delay, Observable, of, tap, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  public host: string = 'https://mne-backend.hisiastudio.com/public/';
+  // public host: string = 'https://mne-backend.hisiastudio.com/public/';
+
+  public host: string = 'http://localhost:8081/public/';
 
   public auth: string = this.host + 'token';
 

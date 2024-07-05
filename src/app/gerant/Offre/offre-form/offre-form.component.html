@@ -1,31 +1,113 @@
-<section>
-  <form [formGroup]="offreForm" (ngSubmit)="handleSubmit()">
-    <h1>Ajouter une nouvelle offre</h1>
-    <div>
-      <mat-form-field class="example-full-width">
-        <mat-label>bouquet</mat-label>
-        <input
-          formControlName="bouquet"
-          type="text"
-          matInput
-          placeholder="Ex. Access"
-        />
-      </mat-form-field>
-    </div>
+<h2 mat-dialog-title>
+  {{ offre ? "Modifier une formule" : "Ajouter une formule" }}
+</h2>
+<mat-dialog-content class="mat-typography">
+  <section>
+    <form [formGroup]="offreForm" (ngSubmit)="handleSubmit()">
+      <!-----exemple de code pour controler les erreurs-->
+      <!-- <div class="ang-grid-02">
+        <div class="textInputWrapper">
+          <label for="">Formule</label>
+          <input
+            formControlName="bouquet"
+            [class]="{ error: isControlInvalid('bouquet') }"
+            placeholder="ACCESS"
+            type="text"
+            class="textInput ang-uppercase example-full-width"
+          />
+        </div>
+      </div> -->
 
-    <div>
-      <mat-form-field class="example-full-width">
-        <mat-label>Montant</mat-label>
-        <input
-          formControlName="montant"
-          type="number"
-          matInput
-          placeholder="Ex. 5500"
-        />
-      </mat-form-field>
-    </div>
-    <div>
-      <button class="btn-offre" [disabled]="!offreForm.valid" mat-raised-button>Ajouter</button>
-    </div>
-  </form>
-</section>
+      <div class="ang-grid-02">
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Formule</mat-label>
+            <input
+              class="ang-uppercase"
+              formControlName="bouquet"
+              type="text"
+              matInput
+              placeholder="Ex. ACCESS"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Prix de la formule</mat-label>
+            <input
+              formControlName="montant"
+              type="number"
+              matInput
+              placeholder="Ex. 5500"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Prix du décodeur</mat-label>
+            <input
+              formControlName="prixDecodeur"
+              type="number"
+              matInput
+              placeholder="Ex. 5500"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Prix de la parabole</mat-label>
+            <input
+              formControlName="prixParabole"
+              type="number"
+              matInput
+              placeholder="Ex. 5500"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Prix de l'installation</mat-label>
+            <input
+              formControlName="prixInstallation"
+              type="number"
+              matInput
+              placeholder="Ex. 5500"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>SAV Décodeur</mat-label>
+            <input
+              formControlName="savDecodeur"
+              type="number"
+              matInput
+              placeholder="Ex. 5000"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Min Mois pour la formule</mat-label>
+            <input
+              formControlName="minMois"
+              type="number"
+              matInput
+              placeholder="Ex. 2"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div>
+        <button
+          class="btn-offre"
+          [disabled]="!offreForm.valid"
+          mat-raised-button
+        >
+          Ajouter
+        </button>
+      </div>
+    </form>
+  </section>
+</mat-dialog-content>

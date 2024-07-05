@@ -1,11 +1,12 @@
 section {
-    padding: 24px;
-    background: var(--body-color);
+  padding: 24px;
+  background: var(--body-color);
 }
 
-.dash{
-    font-size: clamp(1.5rem,3vw,2rem);
-    font-weight: 600;
+.dash {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 3px;
 }
 
 /* .custom-filtre {
@@ -18,139 +19,150 @@ section {
 } */
 
 .indicateur-container {
-    display: flex;
-    justify-content: space-between;
+  display: grid;
+  gap: 24px;
+  margin-block-end: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  /* width: 50vw; */
 }
 
-h1{
-    color: var(--text-color-03);
+h1 {
+  color: var(--text-color-03);
 }
 
 .indice {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 4px;
-    background: #fff;
-    color: var(--text-color-02);
-    width: fit-content;
-    padding: 8px;
-    border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 4px;
+  /* background: #fff; */
+  color: #262626;
+  /* width: fit-content; */
+  padding: 8px;
+  border-radius: 4px;
 }
 
-.indice p:first-child{
-    font-weight: 600;
+.indice p:first-child {
+  font-weight: 600;
 }
 
-.indice p{
-    letter-spacing: 1px;
-    margin: 0;
+.indice p {
+  letter-spacing: 1px;
+  margin: 0;
 }
 
 .in-prefixe {
-    font-size: clamp(1rem,3vw,1.5rem);
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+.indice-value {
+  font-size: clamp(1rem, 3vw, 1.5rem) !important;
+  font-weight: 600;
 }
 
 .notification {
-    display: grid;
-    gap: 24px;
-    grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: 1fr;
-    margin-block: 24px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: 1fr;
+  margin-block: 24px;
 }
 
-
-.info-demande-attente{
-    /* background: #fff; */
-    margin-block-end: 12px;
-}
-
-.offre-head{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-block-end: 18px;
-}
-
-.offre-head h3{
-    text-align: center;
-    margin-block-start: 14px;
-}
-
-.btn-add-offre{
-    background: #c1c1c125;
+.info-demande-attente {
+  /* background: #fff; */
+  margin-block-end: 12px;
 
 }
 
-.grid-table{
-    display: grid;
-    grid-template-columns: 1fr 1fr 0.5fr;
-    color: #262626;
+.ang-box {
+  background: #262626 !important;
+  border-radius: 8px;
+  color: #ffff;
 }
 
-.grid-table p{
-    background: #c1c1c11e;
-    /* border-bottom: 1px solid #c1c1c1; */
-    padding: 8px;
-    margin-block: 4px;
-
+.offre-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 8px;
 }
 
-.grid-table.head p:nth-child(1){
-    font-weight: 600;
-    border-top:1px solid #c1c1c1 ;
+.offre-head h3 {
+  text-align: center;
+  margin-block-start: 14px;
 }
 
-.grid-table.head p:nth-child(2){
-    font-weight: 600;
-    border-top:1px solid #c1c1c1 ;
-}
-.grid-table.head p:nth-child(3){
-    font-weight: 600;
-    border-top:1px solid #c1c1c1 ;
+.btn-add-offre {
+  background: #c1c1c125;
 }
 
-.offre{
-    margin: 0;
+.grid-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr;
+  color: #fff;
 }
 
-.offre p{
-    display: flex;
-    align-items: center;
+.grid-table p {
+  background: #c1c1c11e;
+  /* border-bottom: 1px solid #c1c1c1; */
+  padding: 8px;
+  margin-block: 4px;
+}
 
-    padding-block: 0;
-    font-size: 14px;
-    color: var(--text-color-02);
-    text-transform:capitalize;
+.grid-table.head p:nth-child(1) {
+  font-weight: 600;
+  border-top: 1px solid #c1c1c1;
+}
+
+.grid-table.head p:nth-child(2) {
+  font-weight: 600;
+  border-top: 1px solid #c1c1c1;
+}
+.grid-table.head p:nth-child(3) {
+  font-weight: 600;
+  border-top: 1px solid #c1c1c1;
+}
+
+.offre {
+  margin: 0;
+}
+
+.offre p {
+  display: flex;
+  align-items: center;
+
+  padding-block: 0;
+  font-size: 14px;
+  color: #fff;
+  text-transform: capitalize;
 }
 
 #myMap {
-    margin-block-start: 12px;
-    height: 350px !important;
-    width: auto !important;
-    /* margin-top: 25px;
+  margin-block-start: 12px;
+  height: 150px !important;
+  width: auto !important;
+  /* margin-top: 25px;
     margin-right: 20px;
     margin-left: 20px; */
-    z-index: 0;
+  z-index: 0;
 }
 
-@media only screen and (max-width: 1024px){
-    .notification{
-        grid-template-columns: 1fr;
-    }
+@media only screen and (max-width: 1024px) {
+  .notification {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media only screen and (max-width: 472px) {
-
   .indicateur-container {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     gap: 14px;
-}
+  }
 
-.indice{
-  width: 100%;
-}
+  .indice {
+    width: 100%;
+  }
 }

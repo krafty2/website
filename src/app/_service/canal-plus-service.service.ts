@@ -7,7 +7,8 @@ import { Offre } from '../_models/offre';
   providedIn: 'root',
 })
 export class CanalPlusServiceService {
-  private baseUrl = 'https://mne-backend.hisiastudio.com';
+  // private baseUrl = 'https://mne-backend.hisiastudio.com';
+  private baseUrl = 'http://localhost:8081';
 
   //distrib url
   private saveDistrib: string = this.baseUrl + '/distrib/save_distributeur';
@@ -20,6 +21,7 @@ export class CanalPlusServiceService {
 
   //offre url
   private saveOffre: string = this.baseUrl + '/offre/save_offre';
+  private _updateOffre: string = this.baseUrl + '/offre/update_offre'
   private listOffre: string = this.baseUrl + '/offre/list_offre';
   private deleteOffre: string = this.baseUrl + '/offre/delete_offre/';
   private recruDistribEnAttente =
@@ -45,7 +47,7 @@ export class CanalPlusServiceService {
   //client
   private allClients = this.baseUrl + '/client/all_clients';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   //client
 
@@ -67,7 +69,7 @@ export class CanalPlusServiceService {
     return this.http.get<any>(`${this.allDistrib}`);
   }
 
-  commission():Observable<any>{
+  commission(): Observable<any> {
     return this.http.get<any>(`${this.commis}`);
   }
 
@@ -75,6 +77,10 @@ export class CanalPlusServiceService {
 
   createOffre(offre: Offre): Observable<Offre> {
     return this.http.post<Offre>(`${this.saveOffre}`, offre);
+  }
+
+  updateOffre(offre: Offre) {
+    return this.http.put<Offre>(`${this._updateOffre}`, offre);
   }
 
   listesOffre(): Observable<Offre[]> {

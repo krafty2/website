@@ -73,7 +73,7 @@ export class DistributeurFormComponent {
       ? this.isChecked.setValue(true)
       : this.isChecked.setValue(false);
 
-    if (this.distributeur) {
+    if (!!this.distributeur) {
       this.distributeurForm = this.fb.group({
         nom: [this.distributeur.nom, [Validators.required]],
         prenom: [this.distributeur.prenom, [Validators.required]],

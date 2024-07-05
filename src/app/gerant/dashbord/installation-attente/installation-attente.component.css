@@ -1,6 +1,8 @@
 .content-demande {
     padding: 4px;
     background: #fff !important;
+    border-radius: 8px;
+    border: 1px solid #c1c1c1cb;
 }
 
 .demande-customer-head {

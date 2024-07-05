@@ -15,7 +15,7 @@ import { ListOffreComponent } from '../list-offre/list-offre.component';
 export class DialogCreateOffreComponent {
   constructor(
     public dialogRef: MatDialogRef<DialogCreateOffreComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: number
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   onNoClick(): void {
