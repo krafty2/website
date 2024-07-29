@@ -226,7 +226,7 @@ header .icons .icon:last-child {
 }
 
 button:disabled {
-  background: #c1c1c141 !important;
+  background: #215caa50 !important;
   color: #262626 !important;
 }
 

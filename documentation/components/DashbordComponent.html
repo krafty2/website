@@ -1,0 +1,1045 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>website documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">website documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DashbordComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/gerant/dashbord/dashbord.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dashbord</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/DistributeurCarteComponent.html" target="_self" >DistributeurCarteComponent</a></code>
+                                <code><a href="../components/ReabonnementAttenteComponent.html" target="_self" >ReabonnementAttenteComponent</a></code>
+                                <code><a href="../components/InstallationAttenteComponent.html" target="_self" >InstallationAttenteComponent</a></code>
+                            <code>MatTableModule</code>
+                            <code>MatPaginatorModule</code>
+                            <code>MatIconModule</code>
+                            <code>MatMenuModule</code>
+                            <code>MatButtonModule</code>
+                            <code>CommonModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dashbord.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./dashbord.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ca" >ca</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog" >dialog</a>
+                            </li>
+                            <li>
+                                <a href="#listOffre" >listOffre</a>
+                            </li>
+                            <li>
+                                <a href="#map" >map</a>
+                            </li>
+                            <li>
+                                <a href="#mark" >mark</a>
+                            </li>
+                            <li>
+                                <a href="#nbrClients" >nbrClients</a>
+                            </li>
+                            <li>
+                                <a href="#nbrDistrib" >nbrDistrib</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#modifDialogOffre" >modifDialogOffre</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openDialogOffre" >openDialogOffre</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(canalService: <a href="../injectables/CanalPlusServiceService.html" target="_self">CanalPlusServiceService</a>, dialog: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>canalService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CanalPlusServiceService.html" target="_self" >CanalPlusServiceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modifDialogOffre"></a>
+                    <span class="name">
+                        <span ><b>modifDialogOffre</b></span>
+                        <a href="#modifDialogOffre"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>modifDialogOffre(offre: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>offre</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDialogOffre"></a>
+                    <span class="name">
+                        <span ><b>openDialogOffre</b></span>
+                        <a href="#openDialogOffre"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDialogOffre()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ca"></a>
+                    <span class="name">
+                        <span ><b>ca</b></span>
+                        <a href="#ca"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialog"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dialog</b></span>
+                        <a href="#dialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatDialog</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listOffre"></a>
+                    <span class="name">
+                        <span ><b>listOffre</b></span>
+                        <a href="#listOffre"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="map"></a>
+                    <span class="name">
+                        <span ><b>map</b></span>
+                        <a href="#map"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mark"></a>
+                    <span class="name">
+                        <span ><b>mark</b></span>
+                        <a href="#mark"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nbrClients"></a>
+                    <span class="name">
+                        <span ><b>nbrClients</b></span>
+                        <a href="#nbrClients"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nbrDistrib"></a>
+                    <span class="name">
+                        <span ><b>nbrDistrib</b></span>
+                        <a href="#nbrDistrib"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/gerant/dashbord/dashbord.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { afterRender, Component, ViewChild } from &#x27;@angular/core&#x27;;
+import * as L from &#x27;leaflet&#x27;;
+
+import { DistributeurCarteComponent } from &#x27;../distributeur/distributeur-carte/distributeur-carte.component&#x27;;
+import { ReabonnementAttenteComponent } from &#x27;./reabonnement-attente/reabonnement-attente.component&#x27;;
+import { InstallationAttenteComponent } from &#x27;./installation-attente/installation-attente.component&#x27;;
+
+import { MatPaginator, MatPaginatorModule } from &#x27;@angular/material/paginator&#x27;;
+import { MatTableDataSource, MatTableModule } from &#x27;@angular/material/table&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { MatMenuModule } from &#x27;@angular/material/menu&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { CanalPlusServiceService } from &#x27;../../_service/canal-plus-service.service&#x27;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { DialogCreateOffreComponent } from &#x27;../Offre/dialog-create-offre/dialog-create-offre.component&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { forkJoin } from &#x27;rxjs&#x27;;
+
+
+
+@Component({
+  selector: &#x27;app-dashbord&#x27;,
+  standalone: true,
+  imports: [
+    DistributeurCarteComponent,
+    ReabonnementAttenteComponent,
+    InstallationAttenteComponent,
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    CommonModule
+  ],
+  templateUrl: &#x27;./dashbord.component.html&#x27;,
+  styleUrl: &#x27;./dashbord.component.css&#x27;,
+})
+export class DashbordComponent {
+  map: any;
+  mark:any;
+
+  listOffre:any;
+
+  nbrDistrib!:number;
+  nbrClients!:number;
+
+  ca!:any;
+
+  constructor(private canalService: CanalPlusServiceService,public dialog: MatDialog) {
+
+  }
+
+  ngOnInit(){
+    this.canalService.listesOffre().subscribe((data)&#x3D;&gt;{
+      this.listOffre &#x3D; data;
+    });
+
+    this.canalService.listeDistrib().subscribe((data)&#x3D;&gt;{
+      this.nbrDistrib &#x3D; data.length;
+    });
+
+    this.canalService.clients().subscribe((data)&#x3D;&gt;{
+      this.nbrClients &#x3D; data.length;
+    });
+
+    this.canalService.chiffreAffaireGerant().subscribe((data)&#x3D;&gt;{
+      this.ca &#x3D; data;
+    })
+  }
+
+  openDialogOffre(){
+    const dialogRef &#x3D; this.dialog.open(DialogCreateOffreComponent, {});
+    dialogRef.afterClosed().subscribe((result) &#x3D;&gt; {
+
+    });
+  }
+
+  modifDialogOffre(offre:any){
+    const dialogRef &#x3D; this.dialog.open(DialogCreateOffreComponent, { data: offre});
+    dialogRef.afterClosed().subscribe((result) &#x3D;&gt; {
+
+    });
+  }
+
+  // ngOnInit(){
+  //   if (this.map !&#x3D; undefined || this.map !&#x3D; null) {
+  //     this.map.remove();
+  //   }
+  // }
+
+  // //problem relier au composant parent
+  // ngAfterViewInit() {
+  //   if (this.map !&#x3D; undefined || this.map !&#x3D; null) {
+  //     this.map.remove();
+  //   }
+
+  //   this.initMap();
+  // }
+
+  // initMap(): void {
+  //   if (this.map !&#x3D; undefined || this.map !&#x3D; null) {
+  //     this.map.remove();
+  //   }
+  //   this.canalService.listeDistributeur().subscribe((data) &#x3D;&gt; {
+  //     console.log(data);
+
+  //     let osm &#x3D; L.tileLayer(&#x27;https://tile.openstreetmap.org/{z}/{x}/{y}.png&#x27;, {
+  //       maxZoom: 19,
+  //     });
+
+  //     let googleHybrid &#x3D; L.tileLayer(
+  //       &#x27;http://{s}.google.com/vt/lyrs&#x3D;s,h&amp;x&#x3D;{x}&amp;y&#x3D;{y}&amp;z&#x3D;{z}&#x27;,
+  //       {
+  //         maxZoom: 19,
+  //         subdomains: [&#x27;mt0&#x27;, &#x27;mt1&#x27;, &#x27;mt2&#x27;, &#x27;mt3&#x27;],
+  //       }
+  //     );
+
+  //     let street &#x3D; L.tileLayer(
+  //       &#x27;http://{s}.google.com/vt/lyrs&#x3D;m&amp;x&#x3D;{x}&amp;y&#x3D;{y}&amp;z&#x3D;{z}&#x27;,
+  //       {
+  //         maxZoom: 19,
+  //         subdomains: [&#x27;mt0&#x27;, &#x27;mt1&#x27;, &#x27;mt2&#x27;, &#x27;mt3&#x27;],
+  //       }
+  //     );
+
+  //     //creation de la carte
+  //     this.map &#x3D; L.map(&#x27;map&#x27;, { layers: [street, osm], zoom: 7 }).setView([
+  //       12.396745, -1.556532,
+  //     ]);
+
+  //     let baseMaps &#x3D; {
+  //       Satelite: googleHybrid,
+  //       OpenStreetMap: osm,
+  //       Street: street,
+  //     };
+
+  //     L.control.layers(baseMaps).addTo(this.map);
+
+  //     let iconMesure &#x3D; L.icon({
+  //       iconUrl: &#x27;assets/img/position-svgrepo-com.png&#x27;,
+  //       iconSize: [45, 45],
+  //       popupAnchor: [0, -20],
+  //     });
+
+  //     data.forEach((element: any) &#x3D;&gt; {
+  //       console.log(element.latitude);
+
+  //       this.mark &#x3D; L.marker([element.longitude, element.latitude], {
+  //         icon: iconMesure,
+  //       })
+  //         .addTo(this.map)
+  //         .bindPopup(&#x60;${element.nom} ${element.prenom}&#x60;);
+  //     });
+  //   });
+  // }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section&gt;
+  &lt;h1 class&#x3D;&quot;dash&quot;&gt;Dashbord&lt;/h1&gt;
+
+  &lt;div class&#x3D;&quot;indicateur-container&quot;&gt;
+    &lt;div class&#x3D;&quot;indice&quot;&gt;
+      &lt;div&gt;
+        &lt;img src&#x3D;&quot;/assets/img/person-circle-fill-svgrepo-com.svg&quot; alt&#x3D;&quot;&quot; /&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;p&gt;Distributeurs&lt;/p&gt;
+        &lt;p class&#x3D;&quot;indice-value&quot;&gt;{{ nbrDistrib }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;indice&quot;&gt;
+      &lt;div&gt;
+        &lt;img src&#x3D;&quot;/assets/img/client-profile-svgrepo-com.svg&quot; alt&#x3D;&quot;&quot; /&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;p&gt;Clients&lt;/p&gt;
+        &lt;p class&#x3D;&quot;indice-value&quot;&gt;{{ nbrClients }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;indice&quot;&gt;
+      &lt;div&gt;
+        &lt;img
+          src&#x3D;&quot;/assets/img/money-turnover-bill-line-svgrepo-com.svg&quot;
+          alt&#x3D;&quot;&quot;
+        /&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;p&gt;Chiffre d&#x27;affaire globale&lt;/p&gt;
+        &lt;p class&#x3D;&quot;indice-value&quot;&gt;{{ ca }} CFA&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- &lt;div&gt;
+    &lt;button mat-raised-button (click)&#x3D;&quot;openDialogOffre()&quot;&gt;Ajouter Offre&lt;/button&gt;
+  &lt;/div&gt; --&gt;
+  &lt;div class&#x3D;&quot;notification&quot;&gt;
+    &lt;div&gt;
+      &lt;div class&#x3D;&quot;info-demande-attente&quot;&gt;
+        &lt;app-reabonnement-attente /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;info-demande-attente&quot;&gt;
+        &lt;app-installation-attente /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div &gt;
+      &lt;div class&#x3D;&quot;mat-elevation-z2 ang-box&quot; style&#x3D;&quot;padding: 6px&quot;&gt;
+        &lt;div class&#x3D;&quot;offre-head&quot;&gt;
+          &lt;h3&gt;Offres&lt;/h3&gt;
+
+          &lt;button
+            class&#x3D;&quot;btn-add-offre&quot;
+            mat-icon-button
+            (click)&#x3D;&quot;openDialogOffre()&quot;
+          &gt;
+            &lt;mat-icon&gt;add&lt;/mat-icon&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;div class&#x3D;&quot;grid-table head&quot;&gt;
+            &lt;p&gt;Offre&lt;/p&gt;
+            &lt;p&gt;Montant&lt;/p&gt;
+            &lt;p&gt;&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div *ngFor&#x3D;&quot;let offre of listOffre&quot; class&#x3D;&quot;grid-table offre&quot;&gt;
+            &lt;p&gt;
+              {{ offre.bouquet }}
+            &lt;/p&gt;
+            &lt;p&gt;{{ offre.montant }} Francs CFA&lt;/p&gt;
+            &lt;p style&#x3D;&quot;justify-content: end; padding-inline-end: 24px&quot;&gt;
+              &lt;button
+                class&#x3D;&quot;btn-add-offre&quot;
+                mat-icon-button
+                (click)&#x3D;&quot;modifDialogOffre(offre)&quot;
+              &gt;
+                &lt;mat-icon style&#x3D;&quot;font-size: 24px&quot;&gt;edit&lt;/mat-icon&gt;
+              &lt;/button&gt;
+            &lt;/p&gt;
+          &lt;/div&gt;
+          &lt;!-- &lt;p *ngFor&#x3D;&quot;let offre of listOffre&quot;&gt;
+            {{offre.bouquet}} {{offre.montant}}
+          &lt;/p&gt; --&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;app-distributeur-carte /&gt;
+  &lt;!-- &lt;div class&#x3D;&quot;mat-elevation-z2&quot; id&#x3D;&quot;myMap&quot;&gt;
+
+  &lt;/div&gt; --&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section>  <h1 class="dash">Dashbord</h1>  <div class="indicateur-container">    <div class="indice">      <div>        <img src="/assets/img/person-circle-fill-svgrepo-com.svg" alt="" />      </div>      <div>        <p>Distributeurs</p>        <p class="indice-value">{{ nbrDistrib }}</p>      </div>    </div>    <div class="indice">      <div>        <img src="/assets/img/client-profile-svgrepo-com.svg" alt="" />      </div>      <div>        <p>Clients</p>        <p class="indice-value">{{ nbrClients }}</p>      </div>    </div>    <div class="indice">      <div>        <img          src="/assets/img/money-turnover-bill-line-svgrepo-com.svg"          alt=""        />      </div>      <div>        <p>Chiffre d\'affaire globale</p>        <p class="indice-value">{{ ca }} CFA</p>      </div>    </div>  </div>  <!-- <div>    <button mat-raised-button (click)="openDialogOffre()">Ajouter Offre</button>  </div> -->  <div class="notification">    <div>      <div class="info-demande-attente">        <app-reabonnement-attente />      </div>      <div class="info-demande-attente">        <app-installation-attente />      </div>    </div>    <div >      <div class="mat-elevation-z2 ang-box" style="padding: 6px">        <div class="offre-head">          <h3>Offres</h3>          <button            class="btn-add-offre"            mat-icon-button            (click)="openDialogOffre()"          >            <mat-icon>add</mat-icon>          </button>        </div>        <div>          <div class="grid-table head">            <p>Offre</p>            <p>Montant</p>            <p></p>          </div>          <div *ngFor="let offre of listOffre" class="grid-table offre">            <p>              {{ offre.bouquet }}            </p>            <p>{{ offre.montant }} Francs CFA</p>            <p style="justify-content: end; padding-inline-end: 24px">              <button                class="btn-add-offre"                mat-icon-button                (click)="modifDialogOffre(offre)"              >                <mat-icon style="font-size: 24px">edit</mat-icon>              </button>            </p>          </div>          <!-- <p *ngFor="let offre of listOffre">            {{offre.bouquet}} {{offre.montant}}          </p> -->        </div>      </div>    </div>  </div>  <app-distributeur-carte />  <!-- <div class="mat-elevation-z2" id="myMap">  </div> --></section></div>'
+    var COMPONENTS = [{'name': 'AcceuilComponent', 'selector': 'app-acceuil'},{'name': 'AllPromoComponent', 'selector': 'app-all-promo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashbordComponent', 'selector': 'app-dashbord'},{'name': 'DashbordDistribComponent', 'selector': 'app-dashbord-distrib'},{'name': 'DemandeFormComponent', 'selector': 'app-demande-form'},{'name': 'DemandeInstallationFormComponent', 'selector': 'app-demande-installation-form'},{'name': 'DialgoReadDistribComponent', 'selector': 'app-dialgo-read-distrib'},{'name': 'DialogCreateDistribComponent', 'selector': 'app-dialog-create-distrib'},{'name': 'DialogCreateOffreComponent', 'selector': 'app-dialog-create-offre'},{'name': 'DialogCreateReaboComponent', 'selector': 'app-dialog-create-reabo'},{'name': 'DialogDetailReaboComponent', 'selector': 'app-dialog-detail-reabo'},{'name': 'DistributeurCarteComponent', 'selector': 'app-distributeur-carte'},{'name': 'DistributeurFormComponent', 'selector': 'app-distributeur-form'},{'name': 'DistributeurGlobComponent', 'selector': 'app-distributeur-glob'},{'name': 'DistributeurListComponent', 'selector': 'app-distributeur-list'},{'name': 'GerantGlobComponent', 'selector': 'app-gerant-glob'},{'name': 'GestionDistributeurComponent', 'selector': 'app-gestion-distributeur'},{'name': 'GestionInstallationComponent', 'selector': 'app-gestion-installation'},{'name': 'GestionInstallationDistribComponent', 'selector': 'app-gestion-installation-distrib'},{'name': 'GestionPromoComponent', 'selector': 'app-gestion-promo'},{'name': 'GestionReabonnementComponent', 'selector': 'app-gestion-reabonnement'},{'name': 'GestionReabonnementDistribComponent', 'selector': 'app-gestion-reabonnement-distrib'},{'name': 'InstallationAttenteComponent', 'selector': 'app-installation-attente'},{'name': 'InstallationListComponent', 'selector': 'app-installation-list'},{'name': 'InstallationListDistribComponent', 'selector': 'app-installation-list-distrib'},{'name': 'InstallationWithParaboleComponent', 'selector': 'app-installation-with-parabole'},{'name': 'ListOffreComponent', 'selector': 'app-list-offre'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OffreFormComponent', 'selector': 'app-offre-form'},{'name': 'PromoFormComponent', 'selector': 'app-promo-form'},{'name': 'ReaboDistribAttenteComponent', 'selector': 'app-reabo-distrib-attente'},{'name': 'ReabonnementAttenteComponent', 'selector': 'app-reabonnement-attente'},{'name': 'ReabonnementListComponent', 'selector': 'app-reabonnement-list'},{'name': 'ReabonnmentListDistribComponent', 'selector': 'app-reabonnment-list-distrib'},{'name': 'RecruDistribAttenteComponent', 'selector': 'app-recru-distrib-attente'},{'name': 'RecrutementFormComponent', 'selector': 'app-recrutement-form'},{'name': 'RecrutementListeComponent', 'selector': 'app-recrutement-liste'},{'name': 'SideBarComponent', 'selector': 'app-side-bar'},{'name': 'SideBarDistribComponent', 'selector': 'app-side-bar-distrib'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DashbordComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DashbordComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

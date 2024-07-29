@@ -12,6 +12,7 @@ import { LoginComponent } from './public/login/login.component';
 import { GerantGlobComponent } from './gerant/gerant-glob/gerant-glob.component';
 import { DistributeurGlobComponent } from './distributeur/distributeur-glob/distributeur-glob.component';
 import { InstallationWithParaboleComponent } from './distributeur/installation-with-parabole/installation-with-parabole.component';
+import { GestionPromoComponent } from './gerant/promo/gestion-promo/gestion-promo.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -34,6 +35,10 @@ export const routes: Routes = [
         path: 'gestion-installation',
         component: GestionInstallationComponent,
       },
+      {
+        path: 'gestion-promo',
+        component: GestionPromoComponent
+      }
     ],
   },
   {

@@ -39,10 +39,13 @@ export class DemandeFormComponent {
     private fb: FormBuilder,
     private distribService: CanalPlusServiceService,
     public dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit() {
-    console.log(this.formatDate(this.dateJ));
+    //Modifier les formats
+    // let numero = 131142;
+    // let format = numero.toString().padStart(7,'0');
+    // console.log(format);
 
     this.distribService.listesOffre().subscribe((data) => {
       this.listeOffres$ = data;
@@ -50,19 +53,24 @@ export class DemandeFormComponent {
     });
 
     this.reaboForm = this.fb.group({
-      bouquet: ['',Validators.required],
-      numero_decodeur: ['',Validators.required],
+      bouquet: ['', Validators.required],
+      numero_decodeur: ['', Validators.required],
       demande: this.fb.group({
         typeDemande: ['reabonnement'],
-        date_demande: [this.formatDate(this.dateJ)],
+        dateDemande: [this.formatDate(this.dateJ)],
         commission: [''],
-        duree_abonnement: ['',Validators.required],
+        dureeAbonnement: ['', Validators.required],
         status: [Status.EN_ATTENTE],
-        montantDemande:['']
+        montantDemande: [''],
       }),
     });
   }
 
+  /**
+   * Met la date au format 11 Juillet 2024
+   * @param date
+   * @returns dd-mmmm-yyyy
+   */
   formatDate(date: any) {
     var d = new Date(date),
       month = '' + (d.getMonth() + 1),
@@ -75,36 +83,47 @@ export class DemandeFormComponent {
     return [year, month, day].join('-');
   }
 
+  /**
+   *
+   * @param nbrMois
+   * @param montantFormule
+   * @returns (montantFormule * nbrMois)
+   */
+  montantReabo(nbrMois: number, montantFormule: number): number {
+    return montantFormule * nbrMois;
+  }
+
+  /**
+   * Soumission du formulaire pour enregistrement
+   */
   handleSubmit() {
-    let dureeReabo: number = this.reaboForm.value.demande.duree_abonnement;
-    let bouquetChoisi = this.listeOffres$.find(
-       (element) => element.bouquet == this.reaboForm.value.bouquet
-     );
+    let dureeReabo: number = this.reaboForm.value.demande.dureeAbonnement;
+    let bouquetChoisi: Offre | undefined = this.listeOffres$.find(
+      (element) => element.bouquet == this.reaboForm.value.bouquet
+    );
 
     if (bouquetChoisi) {
-      this.montantTotal$ = dureeReabo * bouquetChoisi?.montant;
-      console.log(this.montantTotal$);
+      this.montantTotal$ = this.montantReabo(dureeReabo, bouquetChoisi!.montant);
       let commission = (this.montantTotal$ * 4) / 100;
-      console.log(commission);
+
       this.reaboForm.value.demande.commission = commission;
       this.reaboForm.value.demande.montantDemande = this.montantTotal$;
     }
 
-    // console.log(this.reaboForm.value);
+    console.log(this.montantTotal$);
 
     // this.distribService.createDemande(this.reaboForm.value).subscribe((response) => {
     //   console.log('reussi'+ response.status);
     // });
 
     const dialogRef = this.dialog.open(DialogCreateReaboComponent, {
-      data: [this.reaboForm.value,this.montantTotal$],
+      data: [this.reaboForm.value, this.montantTotal$],
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      //console.log('The dialog was closed');
 
-      console.log(result);
+      //console.log(result);
     });
-
   }
 }

@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { of } from 'rxjs';
 import { CanalPlusServiceService } from '../../../_service/canal-plus-service.service';
-import { Promo } from '../../../_models/offre';
+
 import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({

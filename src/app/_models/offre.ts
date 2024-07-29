@@ -9,7 +9,4 @@ export interface Offre {
   minMois: number;
 }
 
-export enum Promo {
-  STANDARD = 'STANDARD',
-  SPECIAL = 'SPECIAL',
-}
+

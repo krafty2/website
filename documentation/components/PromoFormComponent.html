@@ -1,0 +1,797 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>website documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">website documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  PromoFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/gerant/promo/promo-form/promo-form.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>provideNativeDateAdapter()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-promo-form</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatButtonModule</code>
+                            <code>MatFormFieldModule</code>
+                            <code>MatInputModule</code>
+                            <code>MatDatepickerModule</code>
+                            <code>MatSelectModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>MatProgressSpinnerModule</code>
+                            <code>CommonModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./promo-form.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./promo-form.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isSubmitting" >isSubmitting</a>
+                            </li>
+                            <li>
+                                <a href="#promoAction" >promoAction</a>
+                            </li>
+                            <li>
+                                <a href="#promoForm" >promoForm</a>
+                            </li>
+                            <li>
+                                <a href="#typePromo" >typePromo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#handelSubmit" >handelSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, canalService: <a href="../injectables/CanalPlusServiceService.html" target="_self">CanalPlusServiceService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/gerant/promo/promo-form/promo-form.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>canalService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CanalPlusServiceService.html" target="_self" >CanalPlusServiceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handelSubmit"></a>
+                    <span class="name">
+                        <span ><b>handelSubmit</b></span>
+                        <a href="#handelSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handelSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/gerant/promo/promo-form/promo-form.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/gerant/promo/promo-form/promo-form.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSubmitting"></a>
+                    <span class="name">
+                        <span ><b>isSubmitting</b></span>
+                        <a href="#isSubmitting"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/gerant/promo/promo-form/promo-form.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="promoAction"></a>
+                    <span class="name">
+                        <span ><b>promoAction</b></span>
+                        <a href="#promoAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/gerant/promo/promo-form/promo-form.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="promoForm"></a>
+                    <span class="name">
+                        <span ><b>promoForm</b></span>
+                        <a href="#promoForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/gerant/promo/promo-form/promo-form.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typePromo"></a>
+                    <span class="name">
+                        <span ><b>typePromo</b></span>
+                        <a href="#typePromo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TypeP.html" target="_self" >TypeP[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { value: TypePromo.STANDARD, viewValue: &#x27;STANDARD&#x27; },
+    { value: TypePromo.SPECIAL, viewValue: &#x27;SPECIAL&#x27; }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/gerant/promo/promo-form/promo-form.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { provideNativeDateAdapter } from &#x27;@angular/material/core&#x27;;
+import { MatDatepickerModule } from &#x27;@angular/material/datepicker&#x27;;
+import { MatFormFieldModule } from &#x27;@angular/material/form-field&#x27;;
+import { MatInputModule } from &#x27;@angular/material/input&#x27;;
+import { MatSelectModule } from &#x27;@angular/material/select&#x27;;
+import { Status } from &#x27;../../../_models/demande&#x27;;
+import { StatusPromo, TypePromo } from &#x27;../../../_models/promo&#x27;;
+import { CanalPlusServiceService } from &#x27;../../../_service/canal-plus-service.service&#x27;;
+import { MatProgressSpinnerModule } from &#x27;@angular/material/progress-spinner&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+
+
+
+@Component({
+  selector: &#x27;app-promo-form&#x27;,
+  standalone: true,
+  providers: [provideNativeDateAdapter()],
+  imports: [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    CommonModule
+  ],
+  templateUrl: &#x27;./promo-form.component.html&#x27;,
+  styleUrl: &#x27;./promo-form.component.css&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class PromoFormComponent {
+
+  promoForm!: FormGroup;
+
+  promoAction: boolean &#x3D; false;
+
+  isSubmitting: boolean &#x3D; false;
+
+  typePromo: TypeP[] &#x3D; [
+    { value: TypePromo.STANDARD, viewValue: &#x27;STANDARD&#x27; },
+    { value: TypePromo.SPECIAL, viewValue: &#x27;SPECIAL&#x27; }
+  ]
+
+  constructor(private fb: FormBuilder, private canalService: CanalPlusServiceService) { }
+
+  ngOnInit() {
+    this.promoForm &#x3D; this.fb.group({
+      dateDebutPromo: new FormControl&lt;Date | null&gt;(new Date(), Validators.required),
+      dateFinPromo: new FormControl&lt;Date | null&gt;(null),
+      typePromo: new FormControl(TypePromo.STANDARD, Validators.required),
+      status: new FormControl(&quot;EN_COURS&quot;),
+    })
+  }
+
+  handelSubmit() {
+    console.log(this.promoForm.value);
+    this.promoAction &#x3D; true;
+    this.isSubmitting &#x3D; true;
+    this.canalService.savePromo(this.promoForm.value).subscribe({
+      next: (data) &#x3D;&gt; {
+        if (!!data) {
+          this.promoAction &#x3D; false;
+          window.location.reload();
+        }
+
+      },
+      error: () &#x3D;&gt; {
+        this.promoAction &#x3D; false;
+      }
+    });
+  }
+}
+
+interface TypeP {
+  value: TypePromo;
+  viewValue: string;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section&gt;
+  &lt;form [formGroup]&#x3D;&quot;promoForm&quot; (ngSubmit)&#x3D;&quot;handelSubmit()&quot;&gt;
+    &lt;div class&#x3D;&quot;ang-grid-04&quot;&gt;
+      &lt;mat-form-field class&#x3D;&quot;full-width&quot;&gt;
+        &lt;mat-label&gt;Début de la promo&lt;/mat-label&gt;
+        &lt;input
+          matInput
+          formControlName&#x3D;&quot;dateDebutPromo&quot;
+          [matDatepicker]&#x3D;&quot;picker1&quot;
+        /&gt;
+        &lt;mat-hint&gt;MM/DD/YYYY&lt;/mat-hint&gt;
+        &lt;mat-datepicker-toggle
+          matIconSuffix
+          [for]&#x3D;&quot;picker1&quot;
+        &gt;&lt;/mat-datepicker-toggle&gt;
+        &lt;mat-datepicker #picker1&gt;&lt;/mat-datepicker&gt;
+      &lt;/mat-form-field&gt;
+
+      &lt;mat-form-field class&#x3D;&quot;full-width&quot;&gt;
+        &lt;mat-label&gt;Fin de la promo&lt;/mat-label&gt;
+        &lt;input
+          matInput
+          formControlName&#x3D;&quot;dateFinPromo&quot;
+          [matDatepicker]&#x3D;&quot;picker2&quot;
+        /&gt;
+        &lt;mat-hint&gt;MM/DD/YYYY&lt;/mat-hint&gt;
+        &lt;mat-datepicker-toggle
+          matIconSuffix
+          [for]&#x3D;&quot;picker2&quot;
+        &gt;&lt;/mat-datepicker-toggle&gt;
+        &lt;mat-datepicker #picker2&gt;&lt;/mat-datepicker&gt;
+      &lt;/mat-form-field&gt;
+
+      &lt;mat-form-field class&#x3D;&quot;full-width&quot;&gt;
+        &lt;mat-label&gt;Type Promo&lt;/mat-label&gt;
+        &lt;mat-select formControlName&#x3D;&quot;typePromo&quot;&gt;
+          @for (type of typePromo; track typePromo) {
+          &lt;mat-option [value]&#x3D;&quot;type.value&quot;&gt;{{ type.viewValue }}&lt;/mat-option&gt;
+          }
+        &lt;/mat-select&gt;
+      &lt;/mat-form-field&gt;
+
+      &lt;div&gt;
+        &lt;button
+          [disabled]&#x3D;&quot;!promoForm.valid || isSubmitting&quot;
+          mat-flat-button
+          class&#x3D;&quot;btn-action&quot;
+        &gt;
+          &lt;ng-container *ngIf&#x3D;&quot;!promoAction&quot;&gt;Enregistrer&lt;/ng-container&gt;
+          &lt;div *ngIf&#x3D;&quot;promoAction&quot;&gt;
+            &lt;mat-spinner [diameter]&#x3D;&quot;24&quot;&gt;&lt;/mat-spinner&gt;
+          &lt;/div&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section>  <form [formGroup]="promoForm" (ngSubmit)="handelSubmit()">    <div class="ang-grid-04">      <mat-form-field class="full-width">        <mat-label>Début de la promo</mat-label>        <input          matInput          formControlName="dateDebutPromo"          [matDatepicker]="picker1"        />        <mat-hint>MM/DD/YYYY</mat-hint>        <mat-datepicker-toggle          matIconSuffix          [for]="picker1"        ></mat-datepicker-toggle>        <mat-datepicker #picker1></mat-datepicker>      </mat-form-field>      <mat-form-field class="full-width">        <mat-label>Fin de la promo</mat-label>        <input          matInput          formControlName="dateFinPromo"          [matDatepicker]="picker2"        />        <mat-hint>MM/DD/YYYY</mat-hint>        <mat-datepicker-toggle          matIconSuffix          [for]="picker2"        ></mat-datepicker-toggle>        <mat-datepicker #picker2></mat-datepicker>      </mat-form-field>      <mat-form-field class="full-width">        <mat-label>Type Promo</mat-label>        <mat-select formControlName="typePromo">          @for (type of typePromo; track typePromo) {          <mat-option [value]="type.value">{{ type.viewValue }}</mat-option>          }        </mat-select>      </mat-form-field>      <div>        <button          [disabled]="!promoForm.valid || isSubmitting"          mat-flat-button          class="btn-action"        >          <ng-container *ngIf="!promoAction">Enregistrer</ng-container>          <div *ngIf="promoAction">            <mat-spinner [diameter]="24"></mat-spinner>          </div>        </button>      </div>    </div>  </form></section></div>'
+    var COMPONENTS = [{'name': 'AcceuilComponent', 'selector': 'app-acceuil'},{'name': 'AllPromoComponent', 'selector': 'app-all-promo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashbordComponent', 'selector': 'app-dashbord'},{'name': 'DashbordDistribComponent', 'selector': 'app-dashbord-distrib'},{'name': 'DemandeFormComponent', 'selector': 'app-demande-form'},{'name': 'DemandeInstallationFormComponent', 'selector': 'app-demande-installation-form'},{'name': 'DialgoReadDistribComponent', 'selector': 'app-dialgo-read-distrib'},{'name': 'DialogCreateDistribComponent', 'selector': 'app-dialog-create-distrib'},{'name': 'DialogCreateOffreComponent', 'selector': 'app-dialog-create-offre'},{'name': 'DialogCreateReaboComponent', 'selector': 'app-dialog-create-reabo'},{'name': 'DialogDetailReaboComponent', 'selector': 'app-dialog-detail-reabo'},{'name': 'DistributeurCarteComponent', 'selector': 'app-distributeur-carte'},{'name': 'DistributeurFormComponent', 'selector': 'app-distributeur-form'},{'name': 'DistributeurGlobComponent', 'selector': 'app-distributeur-glob'},{'name': 'DistributeurListComponent', 'selector': 'app-distributeur-list'},{'name': 'GerantGlobComponent', 'selector': 'app-gerant-glob'},{'name': 'GestionDistributeurComponent', 'selector': 'app-gestion-distributeur'},{'name': 'GestionInstallationComponent', 'selector': 'app-gestion-installation'},{'name': 'GestionInstallationDistribComponent', 'selector': 'app-gestion-installation-distrib'},{'name': 'GestionPromoComponent', 'selector': 'app-gestion-promo'},{'name': 'GestionReabonnementComponent', 'selector': 'app-gestion-reabonnement'},{'name': 'GestionReabonnementDistribComponent', 'selector': 'app-gestion-reabonnement-distrib'},{'name': 'InstallationAttenteComponent', 'selector': 'app-installation-attente'},{'name': 'InstallationListComponent', 'selector': 'app-installation-list'},{'name': 'InstallationListDistribComponent', 'selector': 'app-installation-list-distrib'},{'name': 'InstallationWithParaboleComponent', 'selector': 'app-installation-with-parabole'},{'name': 'ListOffreComponent', 'selector': 'app-list-offre'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OffreFormComponent', 'selector': 'app-offre-form'},{'name': 'PromoFormComponent', 'selector': 'app-promo-form'},{'name': 'ReaboDistribAttenteComponent', 'selector': 'app-reabo-distrib-attente'},{'name': 'ReabonnementAttenteComponent', 'selector': 'app-reabonnement-attente'},{'name': 'ReabonnementListComponent', 'selector': 'app-reabonnement-list'},{'name': 'ReabonnmentListDistribComponent', 'selector': 'app-reabonnment-list-distrib'},{'name': 'RecruDistribAttenteComponent', 'selector': 'app-recru-distrib-attente'},{'name': 'RecrutementFormComponent', 'selector': 'app-recrutement-form'},{'name': 'RecrutementListeComponent', 'selector': 'app-recrutement-liste'},{'name': 'SideBarComponent', 'selector': 'app-side-bar'},{'name': 'SideBarDistribComponent', 'selector': 'app-side-bar-distrib'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'PromoFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PromoFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

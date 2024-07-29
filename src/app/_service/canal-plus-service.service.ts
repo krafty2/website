@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Offre } from '../_models/offre';
+import { Promos } from '../_models/promo';
 
 @Injectable({
   providedIn: 'root',
@@ -34,7 +35,8 @@ export class CanalPlusServiceService {
 
   //demande liste url
   private recrutement = this.baseUrl + '/demande/recrutement';
-  //gerant
+
+  //gerant url
   private recrutementListe = this.baseUrl + '/demande/recrutement';
   private reabonnementListe = this.baseUrl + '/demande/reabonnement';
   private upDemande: string = this.baseUrl + '/demande/update_demande';
@@ -47,9 +49,12 @@ export class CanalPlusServiceService {
   //client
   private allClients = this.baseUrl + '/client/all_clients';
 
-  constructor(private http: HttpClient) { }
+  //promos
+  private _promo = this.baseUrl + '/promos/';
+  private _savePromo = this.baseUrl + '/promos/save_promos';
+  private _allPromo = this.baseUrl + '/promos/all_promo'
 
-  //client
+  constructor(private http: HttpClient) { }
 
   clients(): Observable<any> {
     return this.http.get<any>(`${this.allClients}`);
@@ -135,5 +140,14 @@ export class CanalPlusServiceService {
 
   chiffreAffaireGerant(): Observable<any> {
     return this.http.get<any>(`${this.ca}`);
+  }
+
+  //Promos API
+  savePromo(promo: Promos): Observable<Promos> {
+    return this.http.post<Promos>(`${this._savePromo}`, promo)
+  }
+
+  allPromo(): Observable<any> {
+    return this.http.get<any>(`${this._allPromo}`);
   }
 }

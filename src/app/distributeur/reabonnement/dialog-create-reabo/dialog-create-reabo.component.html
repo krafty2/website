@@ -1,18 +1,22 @@
 <section>
-  <div style="border: 10px solid #ffd200;padding: 14px;background: #ffd200;">
+  <div style="border: 10px solid #ffd200; padding: 14px; background: #ffd200">
     <h1>Nouvelle demande</h1>
     <p class="info-texte-01">
-      Vous proceder a la validation finale du reabonnement
+      Vous proceder a la validation finale -
+      {{ reabo$.bouquet }}
     </p>
 
-    <div style="display: flex;gap: 12px;align-items: center;">
-      <img class="pics-orange" src="/assets/img/6371597b91eed2b9a38e9c0fc8808f48_icon.png" alt="orange_money">
-    <p class="alert-texte mat-elevation-z2" *ngIf="montant$">
-      Avez-vous transférer la somme de : <strong>{{ montant$ }}</strong> CFA au
-      numero +226 05-86-68-65 ?
-    </p>
+    <div style="display: flex; gap: 12px; align-items: center">
+      <img
+        class="pics-orange"
+        src="/assets/img/6371597b91eed2b9a38e9c0fc8808f48_icon.png"
+        alt="orange_money"
+      />
+      <p class="alert-texte mat-elevation-z2" *ngIf="montant$">
+        Avez-vous transférer la somme de : <strong>{{ montant$ }}</strong> CFA
+        au numero +226 05-86-68-65 ?
+      </p>
     </div>
-
 
     <div style="margin-block-start: 42px">
       <button
@@ -40,6 +44,4 @@
       <strong>Annuler</strong>
     </li>
   </ul> -->
-
-
 </section>

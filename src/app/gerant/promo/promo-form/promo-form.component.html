@@ -1,0 +1,57 @@
+<section>
+  <form [formGroup]="promoForm" (ngSubmit)="handelSubmit()">
+    <div class="ang-grid-04">
+      <mat-form-field class="full-width">
+        <mat-label>Début de la promo</mat-label>
+        <input
+          matInput
+          formControlName="dateDebutPromo"
+          [matDatepicker]="picker1"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Fin de la promo</mat-label>
+        <input
+          matInput
+          formControlName="dateFinPromo"
+          [matDatepicker]="picker2"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Type Promo</mat-label>
+        <mat-select formControlName="typePromo">
+          @for (type of typePromo; track typePromo) {
+          <mat-option [value]="type.value">{{ type.viewValue }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <button
+          [disabled]="!promoForm.valid || isSubmitting"
+          mat-flat-button
+          class="btn-action"
+        >
+          <ng-container *ngIf="!promoAction">Enregistrer</ng-container>
+          <div *ngIf="promoAction">
+            <mat-spinner [diameter]="24"></mat-spinner>
+          </div>
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
